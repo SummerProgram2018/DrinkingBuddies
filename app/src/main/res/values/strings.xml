@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DrinkingBuddiesJonah</string>
+    <string name="title_matching">Matching</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_destination">Destination</string>
+    <string name="title_reviews">Reviews</string>
+    <string name="title_profile">Profile</string>
+</resources>
