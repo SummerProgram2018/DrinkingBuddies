@@ -30,25 +30,21 @@ public class MainActivity extends AppCompatActivity {
             android.util.Log.d("YourApplicationName", ex.toString());
         }
         //TODO remove above
-
+        */
         if (isStoredToken()){
 
 
             //launch bottom tabs
-            Intent intent = new Intent(this, BottomTabs.class);
+            Intent intent = new Intent(getBaseContext(), BottomTabs.class);
             startActivity(intent);
         } else {
 
 
             //launch login activity
-            Intent intent  = new Intent(this, LoginActivity.class);
+            Intent intent  = new Intent(getBaseContext(), LoginActivity.class);// changed to get base context
             startActivity(intent);
         }
         //this.finish();// meme
-        */
-        //TODO above is broken atm, need to transition properly then put back in
-        Intent intent  = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 
     private boolean isStoredToken(){
