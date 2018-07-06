@@ -1,8 +1,10 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Explode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,12 +12,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (isStoredToken()){
-            //TODO login and launch bottomTabs
-        } else {
-            //TODO launch sign in / up page with new intent
-            Intent myIntent  = new Intent(); //TODO give params
+
+        /*
+        // Check if we're running on Android 5.0 or higher
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // inside your activity (if you did not enable transitions in your theme)
+            getWindow().requestFeature(this.getWindow().FEATURE_CONTENT_TRANSITIONS);
+            // set an exit transition
+            getWindow().setExitTransition(new Explode());
         }
+        // Swap without transition otherwise
+
+        //TODO remove below: its just to make things look better
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            android.util.Log.d("YourApplicationName", ex.toString());
+        }
+        //TODO remove above
+
+        if (isStoredToken()){
+
+
+            //launch bottom tabs
+            Intent intent = new Intent(this, BottomTabs.class);
+            startActivity(intent);
+        } else {
+
+
+            //launch login activity
+            Intent intent  = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        //this.finish();// meme
+        */
+        //TODO above is broken atm, need to transition properly then put back in
+        Intent intent  = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private boolean isStoredToken(){
