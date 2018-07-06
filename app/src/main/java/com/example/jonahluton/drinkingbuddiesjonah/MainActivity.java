@@ -13,15 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        // Check if we're running on Android 5.0 or higher
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // inside your activity (if you did not enable transitions in your theme)
-            getWindow().requestFeature(this.getWindow().FEATURE_CONTENT_TRANSITIONS);
-            // set an exit transition
-            getWindow().setExitTransition(new Explode());
-        }
-        // Swap without transition otherwise
 
         //TODO remove below: its just to make things look better
         try {
@@ -30,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
             android.util.Log.d("YourApplicationName", ex.toString());
         }
         //TODO remove above
-        */
-        if (isStoredToken()){
 
+        if (isStoredToken()){
 
             //launch bottom tabs
             Intent intent = new Intent(getBaseContext(), BottomTabs.class);
