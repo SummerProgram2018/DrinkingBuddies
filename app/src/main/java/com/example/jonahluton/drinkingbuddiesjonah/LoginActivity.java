@@ -26,6 +26,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+        //sign in button
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -80,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
+
         //sign up button
         Button mSignUpButton = (Button) findViewById(R.id.sign_up_button);
         mSignUpButton.setOnClickListener(new OnClickListener() {
@@ -114,8 +121,8 @@ public class LoginActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        // Check for a valid password
+        if (!isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -170,24 +177,36 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
+            /*
             // TODO: attempt authentication against a network service.
+            Socket socket = null;
+            PrintWriter out;
+            BufferedReader in;
+            BufferedReader stdIn;
 
             try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
+                socket = new Socket("127.0.0.0", 80);
+                out = new PrintWriter(socket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                stdIn =new BufferedReader(new InputStreamReader(System.in));
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+                return false;
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
 
+
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+                for (String string : pieces) {
+
+                    out.write(string); //TODO format and communicate
+
                 }
             }
-
-            // TODO: register the new account here.
+            */
             return true;
         }
 
@@ -196,7 +215,12 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = null;
 
             if (success) {
+
+
+                Intent intent = new Intent(getBaseContext(), BottomTabs.class);
+                startActivity(intent);
                 finish();
+
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

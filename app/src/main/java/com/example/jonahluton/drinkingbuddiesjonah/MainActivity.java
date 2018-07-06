@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
             //launch login activity
             Intent intent  = new Intent(getBaseContext(), LoginActivity.class);// changed to get base context
             startActivity(intent);
+            finish();
         }
-        //this.finish();// meme
     }
 
     private boolean isStoredToken(){
