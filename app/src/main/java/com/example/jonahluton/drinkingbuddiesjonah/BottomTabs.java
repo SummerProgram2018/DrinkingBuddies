@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 
@@ -19,30 +17,12 @@ public class BottomTabs extends AppCompatActivity implements
         Tab2Destination.OnFragmentInteractionListener,
         Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener{
 
-    private BottomNavigationView mBottomNavigationView;
-    private FrameLayout mainFrame;
-
-    /*
-    private Tab0Matching matching;
-    private Tab1Chat chat;
-    private Tab2Destination destination;
-    private Tab3Reviews reviews;
-    private Tab4Profile profile;
-    private Fragment focussed;
-    */
-
-
-
-
-
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            setFragment(new Tab0Matching());
+
             switch (item.getItemId()) {
                 case R.id.navigation_matching:
                     setFragment(new Tab0Matching());
@@ -73,10 +53,10 @@ public class BottomTabs extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_tabs);
 
-        mBottomNavigationView= (BottomNavigationView) findViewById(R.id.navigation);
-        mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        ((BottomNavigationView) findViewById(R.id.navigation)).
+                setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        mainFrame = (FrameLayout) findViewById(R.id.content);
+        setFragment(new Tab0Matching());
     }
 
     @Override
