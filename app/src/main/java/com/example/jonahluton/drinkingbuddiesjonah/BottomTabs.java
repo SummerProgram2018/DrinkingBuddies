@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 
 public class BottomTabs extends AppCompatActivity implements
-        Tab0Matching.OnListFragmentInteractionListener,
+        Tab0Matching.OnFragmentInteractionListener,
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
         Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener{
@@ -22,24 +22,19 @@ public class BottomTabs extends AppCompatActivity implements
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
             switch (item.getItemId()) {
                 case R.id.navigation_matching:
                     setFragment(new Tab0Matching());
                     return true;
-
                 case R.id.navigation_chat:
                     setFragment(new Tab1Chat());
                     return true;
-
                 case R.id.navigation_destination:
                     setFragment(new Tab2Destination());
                     return true;
-
                 case R.id.navigation_reviews:
                     setFragment(new Tab3Reviews());
                     return true;
-
                 case R.id.navigation_profile:
                     setFragment(new Tab4Profile());
                     return true;
@@ -55,7 +50,6 @@ public class BottomTabs extends AppCompatActivity implements
 
         ((BottomNavigationView) findViewById(R.id.navigation)).
                 setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         setFragment(new Tab0Matching());
     }
 
@@ -71,6 +65,9 @@ public class BottomTabs extends AppCompatActivity implements
 
     private void setFragment (Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        /* TODO make animations fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
+                R.anim.slide_in_right, R.anim.slide_out_left); */
+
         fragmentTransaction.replace(R.id.content, fragment);
         fragmentTransaction.commit();
     }
