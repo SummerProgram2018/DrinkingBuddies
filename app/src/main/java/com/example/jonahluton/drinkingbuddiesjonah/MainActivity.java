@@ -12,8 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        //background is not working because im sleeping the thread before it sets it
         //TODO remove below: its just to make things look better
         try {
             Thread.sleep(1000);
@@ -35,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+
     }
 
     private boolean isStoredToken(){
