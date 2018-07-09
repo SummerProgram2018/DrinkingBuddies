@@ -15,6 +15,10 @@
     <string name="error_invalid_password">This password is invalid</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="image_bio">Bio</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="user_name">UserName</string>
+    <string name="user_dis">User Discription</string>
 
     <!-- strings related to signup -->
     <string name="next">Next</string>
