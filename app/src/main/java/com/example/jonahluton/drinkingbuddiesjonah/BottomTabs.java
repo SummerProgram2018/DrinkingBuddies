@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 
+import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent;
+
 public class BottomTabs extends AppCompatActivity implements
         Tab0Matching.OnFragmentInteractionListener,
         Tab1Chat.OnListFragmentInteractionListener,
@@ -70,5 +72,10 @@ public class BottomTabs extends AppCompatActivity implements
 
         fragmentTransaction.replace(R.id.content, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onListFragmentInteraction(Tab1ChatContent.ChatItem item) {
+
     }
 }
