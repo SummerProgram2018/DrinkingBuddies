@@ -25,6 +25,10 @@
     <string name="action_sign_up">Sign up</string>
     <string name="re_enter_password">Reenter Password</string>
 
+    <!-- strings related to signup -->
+    <string name="person1">Person 1</string>
+    <string name="time1">Time 1</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

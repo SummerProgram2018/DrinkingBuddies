@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.example.jonahluton.drinkingbuddiesjonah.Tab1Chat.OnListFragmentInteractionListener;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
 
+import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent.ChatItem;
+
 import java.util.List;
 
 /**
@@ -18,10 +20,10 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyclerViewAdapter2.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<ChatItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyItemRecyclerViewAdapter2(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyItemRecyclerViewAdapter2(List<ChatItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,7 +39,7 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).groupName);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,12 +62,12 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public ChatItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            mIdView = (TextView) view.findViewById(R.id.messageTime);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 

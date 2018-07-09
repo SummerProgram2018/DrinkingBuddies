@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
 
+import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent;
+import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent.ChatItem;
+
 import java.util.List;
 
 /**
@@ -69,7 +72,7 @@ public class Tab1Chat extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter2(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter2(Tab1ChatContent.ITEMS, mListener));
         }
         return view;
     }
@@ -104,6 +107,6 @@ public class Tab1Chat extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(ChatItem item);
     }
 }
