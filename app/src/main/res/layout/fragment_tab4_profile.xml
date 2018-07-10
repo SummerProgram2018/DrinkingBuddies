@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@android:color/white"
+    android:background="@drawable/bg7"
     tools:context=".Tab4Profile">
 
     <!-- TODO: Update blank fragment layout -->
@@ -42,9 +42,11 @@
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:layout_marginEnd="6dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/edit_profile_button"
+        android:clickable="true"
         android:text="@string/edit_profile"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,5 +73,63 @@
         android:textColor="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="260dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="330dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/facebook_f"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <ImageView
+        android:id="@+id/insta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/instagram"
+        app:layout_constraintStart_toEndOf="@+id/face"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <ImageView
+        android:id="@+id/twi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/twitter"
+        app:layout_constraintStart_toEndOf="@+id/insta"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <ImageView
+        android:id="@+id/we"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/wechat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/twi"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
 
 </android.support.constraint.ConstraintLayout>

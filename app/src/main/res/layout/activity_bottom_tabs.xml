@@ -34,7 +34,5 @@
         style="@style/AppTheme"/>
 
 
-    <!-- TODO: style needs to be fixed -->
-
 
 </android.support.constraint.ConstraintLayout>
