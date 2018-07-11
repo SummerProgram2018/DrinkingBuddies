@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="56dp"
+        android:layout_height="62dp"
+        app:srcCompat="@drawable/baseline_person_black_48dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="54dp"
+        android:contentDescription="TODO" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="42dp"
+        android:layout_height="34dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="time1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="326dp"
+        tools:layout_editor_absoluteY="54dp"
+        tools:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:text="person1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="54dp"
+        tools:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="288dp"
+        android:layout_height="19dp"
+        android:text="message1"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="97dp"
+        tools:textSize="14sp"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>
