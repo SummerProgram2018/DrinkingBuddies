@@ -71,6 +71,9 @@ public class Tab2Destination extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
+
     }
 
     @Override
@@ -94,6 +97,7 @@ public class Tab2Destination extends Fragment {
                 arriveBtn.setText("Enjoy!");
                 arriveStat.setText("1/2");
                 arriveBtn.setEnabled(false);
+                setRetainInstance(true);
             }
         });
 
