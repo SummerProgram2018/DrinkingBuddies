@@ -25,33 +25,44 @@ public class Tab1ChatContent {
      */
     public static final Map<String, ChatItem> ITEM_MAP = new HashMap<String, ChatItem>();
 
-    private static List<String> PLACES = new ArrayList<>();
+    private static List<String> GROUPS = new ArrayList<>();
+    private static List<String> MESSAGES = new ArrayList<>();
     private static List<String> TIMES = new ArrayList<>();
 
 
-    public static final List<String> CHATS = new ArrayList<String>();
+    //public static final List<String> CHATS = new ArrayList<String>();
 
     private static final int COUNT = 8;
     private static String Group1 = "Coffee Lovers";
 
     static {
-        PLACES.add("Coffee Lovers");
-        PLACES.add("Sunday Casual Drinks");
-        PLACES.add("Football Fridays");
-        PLACES.add("It's ya boi (or girl)");
-        PLACES.add("After Uni Drinks");
-        PLACES.add("Monday Morning Coffee");
-        PLACES.add("It's ya girl (or boy)");
-        PLACES.add("Tuesday Tea");
+        GROUPS.add("Coffee Lovers");
+        GROUPS.add("Sunday Casual Drinks");
+        GROUPS.add("Football Fridays");
+        GROUPS.add("Lunchtime Coffee");
+        GROUPS.add("Tea Tasters");
+        GROUPS.add("After Uni Drinks");
+        GROUPS.add("Monday Morning Coffee");
+        GROUPS.add("Tuesday Tea");
 
         TIMES.add("4:26pm");
         TIMES.add("2:38pm");
-        TIMES.add("1:06pm");
         TIMES.add("11:34am");
-        TIMES.add("10:48am");
+        TIMES.add("10:28am");
+        TIMES.add("9:31am");
         TIMES.add("8:45am");
         TIMES.add("Yesterday");
-        TIMES.add("Sunday");
+        TIMES.add("Tuesday");
+
+        MESSAGES.add("Sounds good! I'll meet you guys there!");
+        MESSAGES.add("I'll be there from 4pm");
+        MESSAGES.add("World cup final this week!");
+        MESSAGES.add("Finishing up now");
+        MESSAGES.add("I haven't tried that one but I'll give it a go");
+        MESSAGES.add("My class finished early, on my way now");
+        MESSAGES.add("See you guys tomorrow");
+        MESSAGES.add("We'll have to go again next week");
+
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
             addItem(createDummyItem(i));
@@ -60,11 +71,11 @@ public class Tab1ChatContent {
 
     private static void addItem(ChatItem item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.time, item);
     }
 
     private static ChatItem createDummyItem(int position) {
-        return new ChatItem(TIMES.get(position-1), PLACES.get(position-1),"4:38");
+        return new ChatItem(GROUPS.get(position-1),MESSAGES.get(position-1) ,TIMES.get(position-1));
     }
 
     private static String makeDetails(int position) {
@@ -80,19 +91,19 @@ public class Tab1ChatContent {
      * A dummy item representing a piece of content.
      */
     public static class ChatItem {
-        public final String id;
-        public final String groupName;
-        public final String messageTime;
+        public final String group;
+        public final String message;
+        public final String time;
 
-        public ChatItem(String id, String groupName, String messageTime) {
-            this.id = id;
-            this.groupName = groupName;
-            this.messageTime = messageTime;
+        public ChatItem(String group, String message, String time) {
+            this.group = group;
+            this.message = message;
+            this.time = time;
         }
 
         @Override
         public String toString() {
-            return groupName;
+            return message;
         }
 
     }
