@@ -3,6 +3,7 @@ package com.example.jonahluton.drinkingbuddiesjonah;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -12,6 +13,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * A login screen that offers login via email/password.
@@ -23,10 +27,64 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mEmailView;
     private EditText mPasswordView;
 
+
+
+    private boolean emailOK(){
+        return true; //TODO implement
+    }
+
+    private boolean passOK(){
+        return true; //TODO implement
+    }
+
+    private boolean idOK(){
+        return true; //TODO impliment
+    }
+
+    public void writeSdcard(){ //TODO this needs to be checked
+        /*
+        //File root = Environment.getExternalStorageDirectory();
+        File sdcard = Environment.getExternalStorageDirectory();
+        File dir = new File(sdcard.getAbsolutePath() + "/tmp/");
+        // creates if doesn't exists
+        dir.mkdir();
+        // create a File
+        File file = new File(dir, "Example.txt");
+        FileOutputStream os = outStream = new FileOutputStream(file);
+        //this is the text that will be inside of the Example.txt
+        String data = "Hello world";
+        os.write(data.getBytes());
+        os.close();
+        */
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(!(emailOK() && passOK() && idOK())){
+                    //TODO toast
+                } else {
+                    EditText temp  = findViewById(R.id.email);
+                    String email = temp.getText().toString();
+                    EditText temp2 = findViewById(R.id.pass); //TODO fix refernces in the code
+                    String pass = temp2.getText().toString();
+                    EditText temp3 = findViewById(R.id.chID);
+                    String id = temp3.getText().toString();
+
+                    //TODO complete from here
+
+                }
+            }
+        });
+
+
+
         // Set up the login form.
         /*
         mEmailView = (EditText) findViewById(R.id.email);
