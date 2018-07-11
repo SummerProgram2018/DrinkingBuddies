@@ -17,7 +17,10 @@ public class BottomTabs extends AppCompatActivity implements
         Tab0Matching.OnFragmentInteractionListener,
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
-        Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener{
+        Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener,
+        Tab0Group.OnFragmentInteractionListener{
+
+    private Fragment currentFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -26,19 +29,28 @@ public class BottomTabs extends AppCompatActivity implements
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_matching:
-                    setFragment(new Tab0Matching());
+                    currentFragment = new Tab0Matching();
+                    setFragment(currentFragment);
                     return true;
+
                 case R.id.navigation_chat:
-                    setFragment(new Tab1Chat());
+                    currentFragment = new Tab1Chat();
+                    setFragment(currentFragment);
                     return true;
+
                 case R.id.navigation_destination:
-                    setFragment(new Tab2Destination());
+                    currentFragment = new Tab2Destination();
+                    setFragment(currentFragment);
                     return true;
+
                 case R.id.navigation_reviews:
-                    setFragment(new Tab3Reviews());
+                    currentFragment = new Tab3Reviews();
+                    setFragment(currentFragment);
                     return true;
+
                 case R.id.navigation_profile:
-                    setFragment(new Tab4Profile());
+                    currentFragment = new Tab4Profile();
+                    setFragment(currentFragment);
                     return true;
             }
             return false;
@@ -65,6 +77,8 @@ public class BottomTabs extends AppCompatActivity implements
 
     }
 
+
+
     private void setFragment (Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         /* TODO make animations fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
@@ -78,4 +92,6 @@ public class BottomTabs extends AppCompatActivity implements
     public void onListFragmentInteraction(Tab1ChatContent.ChatItem item) {
 
     }
+
+
 }
