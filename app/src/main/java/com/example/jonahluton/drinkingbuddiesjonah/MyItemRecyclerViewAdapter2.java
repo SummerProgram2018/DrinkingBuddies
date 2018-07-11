@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonahluton.drinkingbuddiesjonah.Tab1Chat.OnListFragmentInteractionListener;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
@@ -12,6 +13,8 @@ import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
 import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent.ChatItem;
 
 import java.util.List;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
