@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
+
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
@@ -23,12 +25,33 @@ public class Tab1ChatContent {
      */
     public static final Map<String, ChatItem> ITEM_MAP = new HashMap<String, ChatItem>();
 
-    private static final int COUNT = 10;
-    private static String Group1 = "Coffee Lovers";
-    private static String Time1 = "4:35";
+    private static List<String> PLACES = new ArrayList<>();
+    private static List<String> TIMES = new ArrayList<>();
 
+
+    public static final List<String> CHATS = new ArrayList<String>();
+
+    private static final int COUNT = 8;
+    private static String Group1 = "Coffee Lovers";
 
     static {
+        PLACES.add("Coffee Lovers");
+        PLACES.add("Sunday Casual Drinks");
+        PLACES.add("Football Fridays");
+        PLACES.add("It's ya boi (or girl)");
+        PLACES.add("After Uni Drinks");
+        PLACES.add("Monday Morning Coffee");
+        PLACES.add("It's ya girl (or boy)");
+        PLACES.add("Tuesday Tea");
+
+        TIMES.add("4:26pm");
+        TIMES.add("2:38pm");
+        TIMES.add("1:06pm");
+        TIMES.add("11:34am");
+        TIMES.add("10:48am");
+        TIMES.add("8:45am");
+        TIMES.add("Yesterday");
+        TIMES.add("Sunday");
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
             addItem(createDummyItem(i));
@@ -41,7 +64,7 @@ public class Tab1ChatContent {
     }
 
     private static ChatItem createDummyItem(int position) {
-        return new ChatItem(String.valueOf(position), Group1, "4:38");
+        return new ChatItem(TIMES.get(position-1), PLACES.get(position-1),"4:38");
     }
 
     private static String makeDetails(int position) {
