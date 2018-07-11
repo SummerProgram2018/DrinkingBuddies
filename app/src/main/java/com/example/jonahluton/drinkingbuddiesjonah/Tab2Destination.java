@@ -1,14 +1,24 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -83,6 +93,7 @@ public class Tab2Destination extends Fragment {
             public void onClick(View v) {
                 arriveBtn.setText("Enjoy!");
                 arriveStat.setText("1/2");
+                arriveBtn.setEnabled(false);
             }
         });
 
@@ -93,7 +104,63 @@ public class Tab2Destination extends Fragment {
 //            Todo: start new fragment when alert button pressed
             @Override
             public void onClick(View v) {
-                alertBtn.setText("Confirm?");
+
+                View popupView = getLayoutInflater().inflate(R.layout.fragment_confirm_alert,
+                        null);
+
+                final PopupWindow popupWindow = new PopupWindow(popupView,
+                        WindowManager.LayoutParams.WRAP_CONTENT,
+                        WindowManager.LayoutParams.WRAP_CONTENT);
+
+                // Example: If you have a TextView inside `popup_layout.xml`
+                TextView tv = (TextView) popupView.findViewById(R.id.tv);
+
+                tv.setText("Are you sure you want to confirm?");
+
+                //PopupwWindow buttons
+                final Button confirmBtn = (Button) popupView.findViewById(R.id.confirmBtn);
+                Button confirmCancelBtn = (Button) popupView.findViewById(R.id.confirmCancelBtn);
+
+
+                //confirm button functionality
+                confirmBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        confirmBtn.setText("CONFIRM");
+                        popupWindow.dismiss();
+                        alertBtn.setEnabled(false);
+                        }
+                });
+
+                //cancel button functionality
+                confirmCancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popupWindow.dismiss();
+                    }
+                });
+
+                //PopupWindow layout settings:
+                // If the PopupWindow should be focusable
+                popupWindow.setFocusable(true);
+
+                // If you need the PopupWindow to dismiss when when touched outside
+                popupWindow.setBackgroundDrawable(new ColorDrawable());
+
+                Transition enterTransit = new Slide();
+                popupWindow.setEnterTransition(enterTransit);
+
+                Transition exitTransit = new Slide();
+                popupWindow.setExitTransition(exitTransit);
+
+                popupWindow.setHeight(1800);
+                popupWindow.setWidth(1100);
+
+                // Using location, the PopupWindow will be displayed right under anchorView
+                popupWindow.showAtLocation(v, Gravity.CENTER,
+                        0, 0);
+
+
             }
         });
 
