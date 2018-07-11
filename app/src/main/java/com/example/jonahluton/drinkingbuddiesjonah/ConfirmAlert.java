@@ -1,7 +1,6 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,12 +13,12 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Tab4Profile.OnFragmentInteractionListener} interface
+ * {@link ConfirmAlert.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Tab4Profile#newInstance} factory method to
+ * Use the {@link ConfirmAlert#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tab4Profile extends Fragment implements View.OnClickListener{
+public class ConfirmAlert extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,10 +27,10 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Button edit_profile;
+
     private OnFragmentInteractionListener mListener;
 
-    public Tab4Profile() {
+    public ConfirmAlert() {
         // Required empty public constructor
     }
 
@@ -41,11 +40,11 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Tab4Profile.
+     * @return A new instance of fragment ConfirmAlert.
      */
     // TODO: Rename and change types and number of parameters
-    public static Tab4Profile newInstance(String param1, String param2) {
-        Tab4Profile fragment = new Tab4Profile();
+    public static ConfirmAlert newInstance(String param1, String param2) {
+        ConfirmAlert fragment = new ConfirmAlert();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,33 +65,11 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_tab4_profile, container, false);
-        initView(view);
-        return view;
+        View confirmView = inflater.inflate(R.layout.fragment_confirm_alert, container, false);
+
+        return confirmView;
     }
 
-    private void initView(View view){
-        edit_profile = (Button)view.findViewById(R.id.edit_profile);
-        edit_profile.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.edit_profile:
-                Intent intent = new Intent(getActivity(), EditProfile.class);
-                startActivity(intent);
-
- /*               //如果是用的v4的包，则用getActivity().getSuppoutFragmentManager();
-                FragmentManager fm = getActivity().getFragmentManager();
-                //注意v4包的配套使用
-                Fragment fragment = new EditProfile()
-                fm.beginTransaction().replace(容器控件id,fragment).commit();*/
-                break;
-            default:
-                    break;
-        }
-    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
