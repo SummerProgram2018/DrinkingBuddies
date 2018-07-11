@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
         os.close();
         */
     }
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
                     String email = temp.getText().toString();
                     EditText temp2 = findViewById(R.id.pass); //TODO fix refernces in the code
                     String pass = temp2.getText().toString();
-                    EditText temp3 = findViewById(R.id.chID);
+                    EditText temp3 = findViewById(R.id.citNum);
                     String id = temp3.getText().toString();
 
                     //TODO complete from here
