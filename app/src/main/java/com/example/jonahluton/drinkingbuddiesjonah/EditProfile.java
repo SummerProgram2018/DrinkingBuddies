@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class EditProfile extends AppCompatActivity implements View.OnClickListener{
     private Button button_cancel;
+    private Button button_save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,11 +19,16 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
     private  void initView(){
         button_cancel = (Button)findViewById(R.id.button_cancel);
         button_cancel.setOnClickListener(this);
+        button_save = (Button)findViewById(R.id.button_save);
+        button_save.setOnClickListener(this);
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button_cancel:
+                finish();
+                break;
+            case R.id.button_save:
                 finish();
                 break;
             default:
