@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -21,7 +22,7 @@ import android.widget.TextView;
  * Use the {@link Tab4Profile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tab0Matching extends Fragment implements Tab0MatchingRequests.OnFragmentInteractionListener{ // TODO is this implementation neccesary??
+public class Tab0Matching extends Fragment { // TODO is this implementation neccesary??
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,21 +66,6 @@ public class Tab0Matching extends Fragment implements Tab0MatchingRequests.OnFra
         } else {
             bundle = new Bundle();
         }
-        //TODO set onclick listeners for things
-
-    }
-
-    public void onClickRequest(android.view.View view){
-        Fragment bob = null;
-        /* TODO make animations fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
-        R.anim.slide_in_right, R.anim.slide_out_left); */
-
-
-        //Fragment fragment = new Tab0MatchingRequests();
-        //FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-
-        //fragmentTransaction.replace(R.id.content, fragment);
-        //fragmentTransaction.commit();
     }
 
 
@@ -88,6 +74,7 @@ public class Tab0Matching extends Fragment implements Tab0MatchingRequests.OnFra
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tab0_matching, container, false);
+
         TextView request = v.findViewById(R.id.request);
         request.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -100,16 +87,56 @@ public class Tab0Matching extends Fragment implements Tab0MatchingRequests.OnFra
                         .commit();
             }
         });
-        
+
+        TextView group = v.findViewById(R.id.group);
+        group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0Group newTab = new Tab0Group();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        TextView drink = v.findViewById(R.id.drink);
+        drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0TypeOfDrink newTab = new Tab0TypeOfDrink();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        TextView range = v.findViewById(R.id.range);
+        range.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0Range newTab = new Tab0Range();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        Button find = v.findViewById(R.id.button2);
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO neeed to make this do shit
+            }
+        });
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -126,11 +153,6 @@ public class Tab0Matching extends Fragment implements Tab0MatchingRequests.OnFra
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-        //void
     }
 
     /**
