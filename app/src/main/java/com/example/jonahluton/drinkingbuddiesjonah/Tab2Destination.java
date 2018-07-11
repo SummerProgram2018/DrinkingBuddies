@@ -1,14 +1,24 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -83,6 +93,7 @@ public class Tab2Destination extends Fragment {
             public void onClick(View v) {
                 arriveBtn.setText("Enjoy!");
                 arriveStat.setText("1/2");
+                arriveBtn.setEnabled(false);
             }
         });
 
@@ -93,7 +104,92 @@ public class Tab2Destination extends Fragment {
 //            Todo: start new fragment when alert button pressed
             @Override
             public void onClick(View v) {
-                alertBtn.setText("Confirm?");
+
+                //View popUpView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_confirm_alert, null);
+                //PopupWindow popUpWindow = new PopupWindow(popUpView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                //PopupWindow popUp = new PopupWindow(getContext());
+                //TextView popUpText = new TextView(getContext());
+                //ViewGroup.LayoutParams popUpParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                //popUpText.setLayoutParams(popUpParams);
+                //popUpText.setText("Testing");
+
+                //popUp.setContentView(popUpText);
+                //popUp.setWidth(400);
+                //popUp.setHeight(180);
+                //popUp.showAtLocation(button1, Gravity.CENTER_HORIZONTAL, 25, 25);
+                //popUp.update();
+
+                //popUpWindow.showAsDropDown(popUpView 0, 0);
+
+                //@Override
+                //public void showPopup(View v) {
+
+                View popupView = getLayoutInflater().inflate(R.layout.fragment_confirm_alert,
+                        null);
+
+                final PopupWindow popupWindow = new PopupWindow(popupView,
+                        WindowManager.LayoutParams.WRAP_CONTENT,
+                        WindowManager.LayoutParams.WRAP_CONTENT);
+
+                // Example: If you have a TextView inside `popup_layout.xml`
+                TextView tv = (TextView) popupView.findViewById(R.id.tv);
+
+                tv.setText("Are you sure you want to confirm?");
+
+                //PopupwWindow buttons
+                final Button confirmBtn = (Button) popupView.findViewById(R.id.confirmBtn);
+                Button confirmCancelBtn = (Button) popupView.findViewById(R.id.confirmCancelBtn);
+
+
+                //confirm button functionality
+                confirmBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        confirmBtn.setText("CONFIRM");
+                        popupWindow.dismiss();
+                        alertBtn.setEnabled(false);
+                        }
+                });
+
+                //cancel button functionality
+                confirmCancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popupWindow.dismiss();
+                    }
+                });
+
+                //PopupWindow layout settings:
+                // If the PopupWindow should be focusable
+                popupWindow.setFocusable(true);
+
+                // If you need the PopupWindow to dismiss when when touched outside
+                popupWindow.setBackgroundDrawable(new ColorDrawable());
+
+                Transition enterTransit = new Slide();
+                popupWindow.setEnterTransition(enterTransit);
+
+                Transition exitTransit = new Slide();
+                popupWindow.setExitTransition(exitTransit);
+
+                popupWindow.setHeight(2000);
+                popupWindow.setWidth(2000);
+
+                int location[] = new int[2];
+
+                // Get the View's(the one that was clicked in the Fragment) location
+                v.getLocationOnScreen(location);
+
+                // Using location, the PopupWindow will be displayed right under anchorView
+                //popupWindow.showAtLocation(v, Gravity.NO_GRAVITY,
+                //        location[0], location[1] + v.getHeight());
+
+                // Using location, the PopupWindow will be displayed right under anchorView
+                popupWindow.showAtLocation(v, Gravity.NO_GRAVITY,
+                        0, 2000);
+
+                //}
+
             }
         });
 
