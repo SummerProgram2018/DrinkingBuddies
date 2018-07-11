@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -58,13 +60,44 @@ public class Tab2Destination extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab2_destination, container, false);
+        //return inflater.inflate(R.layout.fragment_tab2_destination, container, false);
+
+        //For reference to use findViewById and return value
+        View destinationView = inflater.inflate(R.layout.fragment_tab2_destination, container, false);
+
+        //Arrive Button Click functionality
+        final Button arriveBtn = (Button) destinationView.findViewById(R.id.arriveBtnID);
+
+        final TextView arriveStat = (TextView) destinationView.findViewById(R.id.arriveStatTxtView);
+
+        arriveBtn.setOnClickListener(new View.OnClickListener() {
+//            Todo: Update arrive stat
+            @Override
+            public void onClick(View v) {
+                arriveBtn.setText("Enjoy!");
+                arriveStat.setText("1/2");
+            }
+        });
+
+        //Alert Button Click functionality
+        final Button alertBtn = (Button) destinationView.findViewById(R.id.alertBtnID);
+
+        alertBtn.setOnClickListener(new View.OnClickListener(){
+//            Todo: start new fragment when alert button pressed
+            @Override
+            public void onClick(View v) {
+                alertBtn.setText("Confirm?");
+            }
+        });
+
+        return destinationView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +123,8 @@ public class Tab2Destination extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
