@@ -1,12 +1,14 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -17,7 +19,7 @@ import android.view.ViewGroup;
  * Use the {@link Tab4Profile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tab4Profile extends Fragment {
+public class Tab4Profile extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,7 +28,7 @@ public class Tab4Profile extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private Button edit_profile;
     private OnFragmentInteractionListener mListener;
 
     public Tab4Profile() {
@@ -64,9 +66,33 @@ public class Tab4Profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab4_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab4_profile, container, false);
+        initView(view);
+        return view;
     }
 
+    private void initView(View view){
+        edit_profile = (Button)view.findViewById(R.id.edit_profile);
+        edit_profile.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.edit_profile:
+                Intent intent = new Intent(getActivity(), EditProfile.class);
+                startActivity(intent);
+
+ /*               //如果是用的v4的包，则用getActivity().getSuppoutFragmentManager();
+                FragmentManager fm = getActivity().getFragmentManager();
+                //注意v4包的配套使用
+                Fragment fragment = new EditProfile()
+                fm.beginTransaction().replace(容器控件id,fragment).commit();*/
+                break;
+            default:
+                    break;
+        }
+    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
