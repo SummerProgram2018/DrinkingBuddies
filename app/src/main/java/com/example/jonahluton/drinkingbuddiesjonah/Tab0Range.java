@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -25,6 +26,7 @@ public class Tab0Range extends Fragment {
     public Tab0Range() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle bundle){
@@ -39,6 +41,7 @@ public class Tab0Range extends Fragment {
         Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
                 Toast.LENGTH_LONG).show();
     }
+
 
 
     @Override

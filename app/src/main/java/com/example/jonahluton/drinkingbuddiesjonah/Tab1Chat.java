@@ -1,14 +1,30 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
@@ -30,7 +46,9 @@ public class Tab1Chat extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private TextView topGroup;
     private OnListFragmentInteractionListener mListener;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,12 +74,16 @@ public class Tab1Chat extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list2, container, false);
+
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -74,9 +96,24 @@ public class Tab1Chat extends Fragment {
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter2(Tab1ChatContent.ITEMS, mListener));
         }
+        //initView(view);
+
+        LinearLayout request = view.findViewById(R.id.wholeRow);
+        request.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Tab1ChatMessaging newTab = new Tab1ChatMessaging();
+                //newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {

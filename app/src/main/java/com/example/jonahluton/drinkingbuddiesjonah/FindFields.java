@@ -41,6 +41,4 @@ public class FindFields {
             groupSize = i;
 
     }
-
-    //TODO make Gson work
 }
