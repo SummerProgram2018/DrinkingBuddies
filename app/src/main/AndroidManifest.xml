@@ -44,6 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EditProfile"/>
+        <activity android:name=".Tab3ShowReviews"/>
     </application>
 
 </manifest>

@@ -97,7 +97,7 @@ public class Tab1Chat extends Fragment {
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter2(Tab1ChatContent.ITEMS, mListener));
         }
         //initView(view);
-
+        /*
         LinearLayout request = view.findViewById(R.id.wholeRow);
         request.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -109,7 +109,7 @@ public class Tab1Chat extends Fragment {
                 bob.replace(R.id.content, newTab)
                         .commit();
             }
-        });
+        }); */
         return view;
     }
 
