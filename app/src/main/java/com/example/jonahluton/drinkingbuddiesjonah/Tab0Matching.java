@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -22,40 +23,16 @@ import android.widget.TextView;
  * Use the {@link Tab4Profile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Tab0Matching extends Fragment { // TODO is this implementation neccesary??
+public class Tab0Matching extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private Bundle bundle;
     private OnFragmentInteractionListener mListener;
+    private FindFields variables;
 
     public Tab0Matching() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Tab4Profile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Tab0Matching newInstance(String param1, String param2) {
-        Tab0Matching fragment = new Tab0Matching();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,8 +40,11 @@ public class Tab0Matching extends Fragment { // TODO is this implementation necc
 
         if (getArguments() != null){
             bundle = getArguments();
+            variables = (FindFields) bundle.get("FIND_FIELDS");
         } else {
             bundle = new Bundle();
+            variables = new FindFields();
+            bundle.putString("FIND_FIELDS", "");
         }
     }
 
@@ -131,12 +111,33 @@ public class Tab0Matching extends Fragment { // TODO is this implementation necc
         find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO neeed to make this do shit
+                if(enoughVariables()){
+                    search();
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(), "you're missing variabls",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
         return v;
     }
 
+    private void search(){
+        //TODO actually search
+    }
+
+    private boolean enoughVariables(){
+        if (variables.getGroupSize() == 0){
+            return false;
+        }
+        if (variables.getRange() == 0){
+            return false;
+        }
+        if (variables.drinks.size() == 0){
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public void onAttach(Context context) {
