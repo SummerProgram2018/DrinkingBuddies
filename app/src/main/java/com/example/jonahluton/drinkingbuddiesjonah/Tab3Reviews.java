@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
@@ -33,7 +34,10 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
     private Button confirm_ratings;
+    private RatingBar rate_bar1;
     private OnFragmentInteractionListener mListener;
+
+
 
 
     /**
@@ -85,6 +89,9 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
     private void initView(View view){
         confirm_ratings = (Button)view.findViewById(R.id.confirmRatings);
         confirm_ratings.setOnClickListener(this);
+
+        rate_bar1= (RatingBar) view.findViewById(R.id.ratingBar1);
+        rate_bar1.setOnClickListener(this);
     }
 
     @Override
@@ -92,6 +99,9 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case R.id.confirmRatings:
                 Intent intent = new Intent(getActivity(), Tab3ShowReviews.class);
+                Bundle b = new Bundle();
+                b.putInt("key", (int) rate_bar1.getRating()); //Your id
+                intent.putExtras(b);
                 startActivity(intent);
 
                 break;

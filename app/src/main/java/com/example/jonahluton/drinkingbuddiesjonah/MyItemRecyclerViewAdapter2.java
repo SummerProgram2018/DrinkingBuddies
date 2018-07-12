@@ -51,7 +51,7 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
             @Override
             public void onClick(View v) {
                 //TODO working here
-                Toast.makeText(v.getContext() , "shut up joe",
+                Toast.makeText(v.getContext() , "chatting",
                         Toast.LENGTH_LONG).show();
                 /*
                 if (null != mListener) {
