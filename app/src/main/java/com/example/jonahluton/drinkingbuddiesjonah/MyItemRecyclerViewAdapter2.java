@@ -50,9 +50,8 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO working here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      spawn pages
 
-                Toast.makeText(v.getContext() , "shut up joe",
+                Toast.makeText(v.getContext() , "chatting",
                         Toast.LENGTH_LONG).show();
             }
         });

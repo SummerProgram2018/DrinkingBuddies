@@ -21,6 +21,7 @@
     <string name="user_dis">User Discription</string>
     <string name="edit_cancel">Cancel</string>
     <string name="edit_save">Save</string>
+    <string name="edit_return">Return</string>
 
     <!-- strings related to signup -->
     <string name="next">Next</string>
