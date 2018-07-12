@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -35,13 +36,13 @@ public class Tab0Range extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
+            System.out.println(getArguments().get("FIND_FIELDS"));
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
 
-        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
+        Toast.makeText(getContext().getApplicationContext(), f.toString(),
                 Toast.LENGTH_LONG).show();
     }
-
 
 
     @Override

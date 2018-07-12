@@ -35,10 +35,14 @@ public class FindFields {
     }
 
     public void setGroupSize(int i){
-        if (!(i>2)){
+        if (!(i>0)){
             return;
         }
             groupSize = i;
 
+    }
+
+    public String toString(){
+        return groupSize + " " + range + " " + drinks;
     }
 }

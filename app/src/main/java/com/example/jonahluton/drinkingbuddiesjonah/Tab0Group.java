@@ -9,21 +9,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< Updated upstream
-import android.widget.Toast;
 
 import com.google.gson.Gson;
-=======
->>>>>>> Stashed changes
 
 
 public class Tab0Group extends Fragment {
 
-<<<<<<< Updated upstream
-    private FindFields f;
-=======
     private Bundle bundle;
->>>>>>> Stashed changes
+    private FindFields f;
     private OnFragmentInteractionListener mListener;
 
     public Tab0Group() {
@@ -34,22 +27,14 @@ public class Tab0Group extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-<<<<<<< Updated upstream
-        if (getArguments() == null){
+        if(getArguments() == null){
+            bundle = new Bundle();
             f = new FindFields();
         } else {
-            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
-        }
-
-        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
-                Toast.LENGTH_LONG).show();
-=======
-        if(getArguments() != null){
-            bundle = getArguments();
-        } else {
             bundle = new Bundle();
+            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
+            bundle.putString("FIND_FIELDS", new Gson().toJson(f));
         }
->>>>>>> Stashed changes
     }
 
     @Override
@@ -127,18 +112,9 @@ public class Tab0Group extends Fragment {
     }
 
     private void returnValue(int i){
-<<<<<<< Updated upstream
-        Bundle bundle = new Bundle();
-        f.setGroupSize(i);
-        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
-        Tab0Matching newTab = new Tab0Matching();
-        newTab.setArguments(bundle);
-
-=======
         bundle.putInt("numberOfPeople", i);
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
->>>>>>> Stashed changes
         FragmentManager manager = getFragmentManager();
         FragmentTransaction bob = manager.beginTransaction();
         bob.replace(R.id.content, newTab)

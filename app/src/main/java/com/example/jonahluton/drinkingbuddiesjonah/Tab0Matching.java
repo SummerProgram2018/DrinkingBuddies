@@ -13,11 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-<<<<<<< Updated upstream
 
 import com.google.gson.Gson;
-=======
->>>>>>> Stashed changes
 
 
 /**
@@ -32,11 +29,7 @@ public class Tab0Matching extends Fragment {
 
     private Bundle bundle;
     private OnFragmentInteractionListener mListener;
-<<<<<<< Updated upstream
     private FindFields f;
-=======
-    private FindFields variables;
->>>>>>> Stashed changes
 
     public Tab0Matching() {
         // Required empty public constructor
@@ -47,26 +40,14 @@ public class Tab0Matching extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-<<<<<<< Updated upstream
         if (getArguments() == null){
             f = new FindFields();
         } else {
+            this.bundle = savedInstanceState;
+
+            System.out.println(getArguments().get("FIND_FIELDS"));
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
-        this.bundle = new Bundle();
-        this.bundle.putString("FIND_FIELDS", new Gson().toJson(f));//TODO this might fuck with shit but its also not modified here
-
-        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
-                Toast.LENGTH_LONG).show();
-=======
-        if (getArguments() != null){
-            bundle = getArguments();
-            variables = (FindFields) bundle.get("FIND_FIELDS");
-        } else {
-            bundle = new Bundle();
-            variables = new FindFields();
-        }
->>>>>>> Stashed changes
     }
 
 
@@ -148,23 +129,13 @@ public class Tab0Matching extends Fragment {
     }
 
     private boolean enoughVariables(){
-<<<<<<< Updated upstream
         if (f.getGroupSize() == 0){
             return false;
         }
-        if (f.getRange() == 0){
+        if(f.getRange() == 0){
             return false;
         }
-        if (f.drinks.size() == 0){
-=======
-        if (variables.getGroupSize() == 0){
-            return false;
-        }
-        if(variables.getRange() == 0){
-            return false;
-        }
-        if(variables.drinks.size() == 0){
->>>>>>> Stashed changes
+        if(f.drinks.size() == 0){
             return false;
         }
         return true;
