@@ -44,6 +44,7 @@ public class Tab0Matching extends Fragment {
         } else {
             bundle = new Bundle();
             variables = new FindFields();
+            bundle.putString("FIND_FIELDS", "");
         }
     }
 
@@ -129,10 +130,10 @@ public class Tab0Matching extends Fragment {
         if (variables.getGroupSize() == 0){
             return false;
         }
-        if(variables.getRange() == 0){
+        if (variables.getRange() == 0){
             return false;
         }
-        if(variables.drinks.size() == 0){
+        if (variables.drinks.size() == 0){
             return false;
         }
         return true;
