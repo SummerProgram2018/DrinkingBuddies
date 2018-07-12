@@ -15,14 +15,18 @@ import com.google.gson.Gson;
  * A simple {@link Fragment} subclass.
  */
 public class Tab0MatchingRequests extends Fragment {
+<<<<<<< Updated upstream
 
     private FindFields f;
+=======
+>>>>>>> Stashed changes
 
 
     public Tab0MatchingRequests() {
         // Required empty public constructor
     }
 
+<<<<<<< Updated upstream
 
     @Override
     public void onCreate (Bundle bundle){
@@ -33,6 +37,8 @@ public class Tab0MatchingRequests extends Fragment {
         } else {
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
+=======
+>>>>>>> Stashed changes
 
         Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
                 Toast.LENGTH_LONG).show();

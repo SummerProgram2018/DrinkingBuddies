@@ -3,6 +3,7 @@ package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+<<<<<<< Updated upstream
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -12,6 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.gson.Gson;
+=======
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+>>>>>>> Stashed changes
 
 
 /**
@@ -19,13 +25,17 @@ import com.google.gson.Gson;
  */
 public class Tab0Range extends Fragment {
 
+<<<<<<< Updated upstream
     private View v;
     private FindFields f;
+=======
+>>>>>>> Stashed changes
 
     public Tab0Range() {
         // Required empty public constructor
     }
 
+<<<<<<< Updated upstream
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -40,11 +50,14 @@ public class Tab0Range extends Fragment {
                 Toast.LENGTH_LONG).show();
     }
 
+=======
+>>>>>>> Stashed changes
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< Updated upstream
         v = inflater.inflate(R.layout.fragment_tab0_range, container, false);
 
         Button button = v.findViewById(R.id.button);
@@ -78,4 +91,9 @@ public class Tab0Range extends Fragment {
         });
         return v;
     }
+=======
+        return inflater.inflate(R.layout.fragment_tab0_range, container, false);
+    }
+
+>>>>>>> Stashed changes
 }

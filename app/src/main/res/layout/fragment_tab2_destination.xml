@@ -79,7 +79,10 @@
 
                 <RatingBar
                     android:id="@+id/rate1Bar"
+<<<<<<< Updated upstream
                     android:isIndicator="true"
+=======
+>>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -123,7 +126,10 @@
 
                 <RatingBar
                     android:id="@+id/rate2Bar"
+<<<<<<< Updated upstream
                     android:isIndicator="true"
+=======
+>>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -167,7 +173,10 @@
 
                 <RatingBar
                     android:id="@+id/rate3Bar"
+<<<<<<< Updated upstream
                     android:isIndicator="true"
+=======
+>>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -211,7 +220,10 @@
 
                 <RatingBar
                     android:id="@+id/rate4Bar"
+<<<<<<< Updated upstream
                     android:isIndicator="true"
+=======
+>>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -241,7 +253,11 @@
                     android:id="@+id/drink5TV"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
+<<<<<<< Updated upstream
                     android:layout_marginLeft="140dp"
+=======
+                    android:layout_marginLeft="200dp"
+>>>>>>> Stashed changes
                     android:text="Drink 5"
                     android:textStyle="bold" />
 
@@ -253,7 +269,10 @@
 
                 <RatingBar
                     android:id="@+id/rate5Bar"
+<<<<<<< Updated upstream
                     android:isIndicator="true"
+=======
+>>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"

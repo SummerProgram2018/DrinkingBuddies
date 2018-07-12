@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< Updated upstream
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+=======
+>>>>>>> Stashed changes
 
 
 /**
@@ -16,13 +19,17 @@ import com.google.gson.Gson;
  */
 public class Tab0TypeOfDrink extends Fragment {
 
+<<<<<<< Updated upstream
     private FindFields f;
 
+=======
+>>>>>>> Stashed changes
 
     public Tab0TypeOfDrink() {
         // Required empty public constructor
     }
 
+<<<<<<< Updated upstream
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -36,6 +43,8 @@ public class Tab0TypeOfDrink extends Fragment {
         Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
                 Toast.LENGTH_LONG).show();
     }
+=======
+>>>>>>> Stashed changes
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
