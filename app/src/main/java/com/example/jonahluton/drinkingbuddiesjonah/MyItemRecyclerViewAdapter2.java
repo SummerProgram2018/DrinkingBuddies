@@ -1,5 +1,7 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
+import android.app.Activity;
+import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,11 +50,15 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO working here
+                Toast.makeText(v.getContext() , "shut up joe",
+                        Toast.LENGTH_LONG).show();
+                /*
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
-                }
+                }*/
             }
         });
     }
