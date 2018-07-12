@@ -16,46 +16,32 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class SignUpActivity extends AppCompatActivity {
 
-
-    // UI references.
-    private EditText mEmailView;
-    private EditText mPasswordView;
-
-
-
     private boolean emailOK(){
-        return true; //TODO implement
+        EditText temp  = findViewById(R.id.email);
+        String email = temp.getText().toString();
+
+        return email.contains("@");
     }
 
     private boolean passOK(){
-        return true; //TODO implement
+        EditText temp1 = findViewById(R.id.pass);
+        String pass = temp1.getText().toString();
+        EditText temp2 = findViewById(R.id.repass);
+        String rePass = temp2.getText().toString();
+
+        return pass.equals(rePass) && pass.length() > 4;
     }
 
     private boolean idOK(){
         return true; //TODO impliment
-    }
-
-    public void writeSdcard(){ //TODO this needs to be checked
-        /*
-        //File root = Environment.getExternalStorageDirectory();
-        File sdcard = Environment.getExternalStorageDirectory();
-        File dir = new File(sdcard.getAbsolutePath() + "/tmp/");
-        // creates if doesn't exists
-        dir.mkdir();
-        // create a File
-        File file = new File(dir, "Example.txt");
-        FileOutputStream os = outStream = new FileOutputStream(file);
-        //this is the text that will be inside of the Example.txt
-        String data = "Hello world";
-        os.write(data.getBytes());
-        os.close();
-        */
     }
 
     @Override
@@ -64,20 +50,30 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                if(!(emailOK() && passOK() && idOK())){
-                    //TODO toast
+            public void onClick(View view) {
+                if (!(emailOK() && passOK() && idOK())) {
+                    Toast.
                 } else {
-                    EditText temp  = findViewById(R.id.email);
+                    EditText temp = findViewById(R.id.email);
                     String email = temp.getText().toString();
-                    EditText temp2 = findViewById(R.id.pass); //TODO fix refernces in the code
+                    EditText temp2 = findViewById(R.id.pass);
                     String pass = temp2.getText().toString();
                     EditText temp3 = findViewById(R.id.citNum);
                     String id = temp3.getText().toString();
 
-                    //TODO complete from here
+                    // get external storage file reference
+                    FileWriter writer = null;
+                    try {
+                        writer = new FileWriter(Environment.getExternalStorageDirectory() + "/UserData");
+                        // Writes the content to the file
+                        writer.write(id + "," + email + "," + pass + "\n");
+                        writer.flush();
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
                 }
             }
@@ -85,171 +81,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        // Set up the login form.
-        /*
-        mEmailView = (EditText) findViewById(R.id.email);
-
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-
-        });
-
-
-        Button mEmailSignInButton = (Button) findViewById(R.id.Next);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-        */
     }
-
-
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     *
-    private void attemptLogin() {
-        /*
-        if (mAuthTask != null) {
-            return;
-        }
-        *
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
-
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password
-        if (!isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            /* TODO replace with storing stuff for login
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
-            *
-        }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
-    }
-
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     *
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            /*
-            // TODO: attempt authentication against a network service.
-            Socket socket = null;
-            PrintWriter out;
-            BufferedReader in;
-            BufferedReader stdIn;
-
-            try {
-                socket = new Socket("127.0.0.0", 80);
-                out = new PrintWriter(socket.getOutputStream(), true);
-                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                stdIn =new BufferedReader(new InputStreamReader(System.in));
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                for (String string : pieces) {
-
-                    out.write(string); //TODO format and communicate
-
-                }
-            }
-            *
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            //mAuthTask = null;
-
-            if (success) {
-
-
-                Intent intent = new Intent(getBaseContext(), BottomTabs.class);
-                startActivity(intent);
-                finish();
-
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            //mAuthTask = null;
-        }
-    }
-        */
-
 }
 
