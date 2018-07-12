@@ -36,7 +36,6 @@ public class Tab0Range extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
-            System.out.println(getArguments().get("FIND_FIELDS"));
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
 

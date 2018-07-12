@@ -43,9 +43,6 @@ public class Tab0Matching extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
-            this.bundle = savedInstanceState;
-
-            System.out.println(getArguments().get("FIND_FIELDS"));
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
     }
