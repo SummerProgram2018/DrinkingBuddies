@@ -76,7 +76,6 @@ public class SignUpActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
         });

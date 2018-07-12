@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 /**
@@ -34,10 +33,11 @@ public class Tab0Range extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
-
-            FindFields jsonJavaRootObject = new Gson().fromJson(getArguments().get("FINDFIELDS"), FindFields.class);
-            //f = (FindFields) getArguments().get("FINDFIELDS");
+            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
+
+        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
+                Toast.LENGTH_LONG).show();
     }
 
 
@@ -56,15 +56,16 @@ public class Tab0Range extends Fragment {
                 if(!var.equals("")){
                     try {
                         f.setRange(Integer.parseInt(var));
-                        //TODO start the things
+
                         Bundle bundle = new Bundle();
                         Tab0Matching newTab = new Tab0Matching();
-                        //bundle.put(); //TODO
-                        //newTab.setArguments("FIND_FIELDS", f);
+                        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
+                        newTab.setArguments(bundle);
 
                         FragmentManager manager = getFragmentManager();
                         FragmentTransaction bob = manager.beginTransaction();
                         bob.replace(R.id.content, newTab).commit();
+
                     } catch(ClassCastException e) {
                         Toast.makeText(getContext().getApplicationContext(), "range needs to be a number",
                                 Toast.LENGTH_LONG).show();
@@ -75,9 +76,6 @@ public class Tab0Range extends Fragment {
                 }
             }
         });
-
-
         return v;
     }
-
 }

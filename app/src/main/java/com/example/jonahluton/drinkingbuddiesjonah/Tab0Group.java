@@ -9,11 +9,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 
 public class Tab0Group extends Fragment {
 
-    private Bundle bundle;
+    private FindFields f;
     private OnFragmentInteractionListener mListener;
 
     public Tab0Group() {
@@ -24,11 +27,14 @@ public class Tab0Group extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(getArguments() != null){
-            bundle = getArguments();
+        if (getArguments() == null){
+            f = new FindFields();
         } else {
-            bundle = new Bundle();
+            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
+
+        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
+                Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -106,9 +112,12 @@ public class Tab0Group extends Fragment {
     }
 
     private void returnValue(int i){
-        bundle.putInt("numberOfPeople", i);
+        Bundle bundle = new Bundle();
+        f.setGroupSize(i);
+        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
+
         FragmentManager manager = getFragmentManager();
         FragmentTransaction bob = manager.beginTransaction();
         bob.replace(R.id.content, newTab)
