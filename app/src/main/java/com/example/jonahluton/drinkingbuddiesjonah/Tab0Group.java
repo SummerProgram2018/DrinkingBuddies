@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -33,8 +34,9 @@ public class Tab0Group extends Fragment {
         } else {
             bundle = new Bundle();
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
-            bundle.putString("FIND_FIELDS", new Gson().toJson(f));
         }
+        Toast.makeText(getContext().getApplicationContext(), f.toString(),
+                Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -93,13 +95,6 @@ public class Tab0Group extends Fragment {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -112,7 +107,9 @@ public class Tab0Group extends Fragment {
     }
 
     private void returnValue(int i){
-        bundle.putInt("numberOfPeople", i);
+        f.setGroupSize(i);
+        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
+
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
