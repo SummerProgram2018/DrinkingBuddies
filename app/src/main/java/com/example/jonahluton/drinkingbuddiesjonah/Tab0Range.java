@@ -32,7 +32,8 @@ public class Tab0Range extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
-            f = (FindFields) getArguments().get("FINDFIELDS");
+            FindFields jsonJavaRootObject = new Gson().fromJson(getArguments().get("FINDFIELDS"), FindFields.class);
+            //f = (FindFields) getArguments().get("FINDFIELDS");
         }
     }
 
@@ -55,13 +56,12 @@ public class Tab0Range extends Fragment {
                         //TODO start the things
                         Bundle bundle = new Bundle();
                         Tab0Matching newTab = new Tab0Matching();
-                        bundle.put()
-                        newTab.setArguments("FIND_FIELDS", f);
+                        //bundle.put(); //TODO
+                        //newTab.setArguments("FIND_FIELDS", f);
                         FragmentManager manager = getFragmentManager();
                         FragmentTransaction bob = manager.beginTransaction();
-                        bob.replace(R.id.content, newTab)
-                                .commit();
-                    } catch(classCastException e) {
+                        bob.replace(R.id.content, newTab).commit();
+                    } catch(ClassCastException e) {
                         Toast.makeText(getContext().getApplicationContext(), "range needs to be a number",
                                 Toast.LENGTH_LONG).show();
                     }

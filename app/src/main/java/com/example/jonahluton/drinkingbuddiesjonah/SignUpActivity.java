@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +55,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!(emailOK() && passOK() && idOK())) {
-                    Toast.
+                    Toast.makeText(getBaseContext().getApplicationContext(), "please enter everything validly",
+                            Toast.LENGTH_LONG).show();
                 } else {
                     EditText temp = findViewById(R.id.email);
                     String email = temp.getText().toString();
