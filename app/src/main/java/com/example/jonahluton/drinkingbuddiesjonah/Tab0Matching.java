@@ -27,8 +27,6 @@ import com.google.gson.Gson;
  */
 public class Tab0Matching extends Fragment {
 
-    private Bundle bundle;
-    private OnFragmentInteractionListener mListener;
     private FindFields f;
 
     public Tab0Matching() {
@@ -44,9 +42,6 @@ public class Tab0Matching extends Fragment {
             f = new FindFields();
 
         } else {
-            this.bundle = savedInstanceState;
-            System.out.println(getArguments().get("FIND_FIELDS"));
-
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
         Toast.makeText(getContext().getApplicationContext(), f.toString(),
@@ -65,11 +60,7 @@ public class Tab0Matching extends Fragment {
             @Override
             public void onClick(View v){
                 Tab0MatchingRequests newTab = new Tab0MatchingRequests();
-                newTab.setArguments(bundle);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction bob = manager.beginTransaction();
-                bob.replace(R.id.content, newTab)
-                        .commit();
+                launchTab(newTab);
             }
         });
 
@@ -78,11 +69,7 @@ public class Tab0Matching extends Fragment {
             @Override
             public void onClick(View view) {
                 Tab0Group newTab = new Tab0Group();
-                newTab.setArguments(bundle);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction bob = manager.beginTransaction();
-                bob.replace(R.id.content, newTab)
-                        .commit();
+                launchTab(newTab);
             }
         });
 
@@ -91,11 +78,7 @@ public class Tab0Matching extends Fragment {
             @Override
             public void onClick(View view) {
                 Tab0TypeOfDrink newTab = new Tab0TypeOfDrink();
-                newTab.setArguments(bundle);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction bob = manager.beginTransaction();
-                bob.replace(R.id.content, newTab)
-                        .commit();
+                launchTab(newTab);
             }
         });
 
@@ -104,11 +87,7 @@ public class Tab0Matching extends Fragment {
             @Override
             public void onClick(View view) {
                 Tab0Range newTab = new Tab0Range();
-                newTab.setArguments(bundle);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction bob = manager.beginTransaction();
-                bob.replace(R.id.content, newTab)
-                        .commit();
+                launchTab(newTab);
             }
         });
 
@@ -127,6 +106,15 @@ public class Tab0Matching extends Fragment {
         return v;
     }
 
+    public void launchTab(Fragment frag){
+        Bundle bun = new Bundle();
+        bun.putString("FIND_FIELDS", new Gson().toJson(f));
+        frag.setArguments(bun);
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction bob = manager.beginTransaction();
+        bob.replace(R.id.content, frag)
+                .commit();
+    }
     private void search(){
         //TODO actually search
     }
@@ -144,35 +132,5 @@ public class Tab0Matching extends Fragment {
         return true;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

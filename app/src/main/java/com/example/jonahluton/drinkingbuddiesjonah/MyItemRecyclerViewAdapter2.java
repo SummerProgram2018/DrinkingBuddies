@@ -50,15 +50,10 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO working here
+                //TODO working here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      spawn pages
+
                 Toast.makeText(v.getContext() , "shut up joe",
                         Toast.LENGTH_LONG).show();
-                /*
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }*/
             }
         });
     }
