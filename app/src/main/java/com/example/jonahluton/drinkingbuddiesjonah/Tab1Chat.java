@@ -96,20 +96,7 @@ public class Tab1Chat extends Fragment {
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter2(Tab1ChatContent.ITEMS, mListener));
         }
-        //initView(view);
 
-        LinearLayout request = view.findViewById(R.id.wholeRow);
-        request.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Tab1ChatMessaging newTab = new Tab1ChatMessaging();
-                //newTab.setArguments(bundle);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction bob = manager.beginTransaction();
-                bob.replace(R.id.content, newTab)
-                        .commit();
-            }
-        });
         return view;
     }
 
