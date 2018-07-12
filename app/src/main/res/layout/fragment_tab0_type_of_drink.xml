@@ -6,8 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg7"
+<<<<<<< HEAD
     tools:context=".Tab0TypeOfDrink"
     tools:layout_editor_absoluteY="25dp">
+=======
+    tools:context=".Tab0TypeOfDrink">
+>>>>>>> 4ed638a1a91a8a12103722057536142553b71485
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -16,14 +20,20 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/beer_coffee_logo"
+<<<<<<< HEAD
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="197dp" />
+=======
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="172dp" />
+>>>>>>> 4ed638a1a91a8a12103722057536142553b71485
 
     <ImageView
         android:id="@+id/A"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/beer_coffee_logo"
+<<<<<<< HEAD
         tools:layout_editor_absoluteX="220dp"
         tools:layout_editor_absoluteY="197dp" />
 
@@ -61,4 +71,43 @@
         android:textColor="#000000"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="415dp" />
+=======
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <ImageView
+        android:id="@+id/C"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/beer_coffee_logo"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="384dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="373dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-Alcoholic"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alcoholic"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="252dp"
+        tools:layout_editor_absoluteY="142dp" />
+>>>>>>> 4ed638a1a91a8a12103722057536142553b71485
 </android.support.constraint.ConstraintLayout>

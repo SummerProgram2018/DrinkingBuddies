@@ -40,6 +40,10 @@ public class Tab0TypeOfDrink extends Fragment {
         Toast.makeText(getContext().getApplicationContext(), f.toString(),
                 Toast.LENGTH_LONG).show();
     }
+
+
+
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,19 +54,17 @@ public class Tab0TypeOfDrink extends Fragment {
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                f.drinks.add("alcoholic");
-                launchFragment();
+                f.drinks.add("A");
+                launchTab();
             }
         });
-
-
 
         View na = v.findViewById(R.id.NA);
         na.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                f.drinks.add("non_alcoholic");
-                launchFragment();
+                f.drinks.add("NA");
+                launchTab();
             }
         });
 
@@ -71,16 +73,16 @@ public class Tab0TypeOfDrink extends Fragment {
             @Override
             public void onClick(View view) {
                 f.drinks = new ArrayList<>();
-                launchFragment();
+                launchTab();
             }
         });
         return v;
     }
 
-    private void launchFragment(){
+    private void launchTab(){
         Bundle bundle = new Bundle();
-        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
 
+        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
         FragmentManager manager = getFragmentManager();

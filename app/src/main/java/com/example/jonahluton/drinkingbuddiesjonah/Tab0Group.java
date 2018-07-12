@@ -16,9 +16,7 @@ import com.google.gson.Gson;
 
 public class Tab0Group extends Fragment {
 
-    private Bundle bundle;
     private FindFields f;
-    private OnFragmentInteractionListener mListener;
 
     public Tab0Group() {
         // Required empty public constructor
@@ -28,16 +26,15 @@ public class Tab0Group extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(getArguments() == null){
-            bundle = new Bundle();
+        if (getArguments() == null){
             f = new FindFields();
         } else {
-            bundle = new Bundle();
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
         Toast.makeText(getContext().getApplicationContext(), f.toString(),
                 Toast.LENGTH_LONG).show();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,21 +92,12 @@ public class Tab0Group extends Fragment {
         return v;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+
 
     private void returnValue(int i){
+        Bundle bundle = new Bundle();
         f.setGroupSize(i);
         bundle.putString("FIND_FIELDS", new Gson().toJson(f));
-
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
@@ -119,11 +107,6 @@ public class Tab0Group extends Fragment {
     }
 
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this

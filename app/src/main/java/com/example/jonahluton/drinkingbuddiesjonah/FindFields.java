@@ -6,7 +6,7 @@ public class FindFields {
 
 
     private int groupSize = 0;
-    public ArrayList<String> drinks = new ArrayList<String>();
+    public ArrayList<String> drinks = new ArrayList<>();
     private int range = 0;
 
     public FindFields(){
