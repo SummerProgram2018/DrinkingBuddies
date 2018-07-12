@@ -114,6 +114,8 @@
 
                 <RatingBar
                     android:id="@+id/rate1Bar"
+                    android:isIndicator="true"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -157,6 +159,9 @@
 
                 <RatingBar
                     android:id="@+id/rate2Bar"
+                    android:isIndicator="true"
+
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -200,6 +205,8 @@
 
                 <RatingBar
                     android:id="@+id/rate3Bar"
+                    android:isIndicator="true"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -243,6 +250,9 @@
 
                 <RatingBar
                     android:id="@+id/rate4Bar"
+                    android:isIndicator="true"
+
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -272,7 +282,9 @@
                     android:id="@+id/drink5TV"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="140dp"
+
+
                     android:text="Drink 5"
                     android:textStyle="bold" />
 
@@ -284,6 +296,8 @@
 
                 <RatingBar
                     android:id="@+id/rate5Bar"
+                    android:isIndicator="true"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"

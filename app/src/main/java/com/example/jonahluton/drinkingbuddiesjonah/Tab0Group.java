@@ -9,12 +9,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 
 public class Tab0Group extends Fragment {
 
-    private Bundle bundle;
-    private OnFragmentInteractionListener mListener;
+    private FindFields f;
 
     public Tab0Group() {
         // Required empty public constructor
@@ -24,12 +26,15 @@ public class Tab0Group extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(getArguments() != null){
-            bundle = getArguments();
+        if (getArguments() == null){
+            f = new FindFields();
         } else {
-            bundle = new Bundle();
+            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
+        Toast.makeText(getContext().getApplicationContext(), f.toString(),
+                Toast.LENGTH_LONG).show();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,26 +92,13 @@ public class Tab0Group extends Fragment {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+
 
     private void returnValue(int i){
-        bundle.putInt("numberOfPeople", i);
+        Bundle bundle = new Bundle();
+        f.setGroupSize(i);
+        bundle.putString("FIND_FIELDS", new Gson().toJson(f));
         Tab0Matching newTab = new Tab0Matching();
         newTab.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
@@ -116,11 +108,6 @@ public class Tab0Group extends Fragment {
     }
 
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this

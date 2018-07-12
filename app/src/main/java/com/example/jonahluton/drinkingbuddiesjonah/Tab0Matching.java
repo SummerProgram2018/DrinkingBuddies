@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +29,7 @@ public class Tab0Matching extends Fragment {
 
     private Bundle bundle;
     private OnFragmentInteractionListener mListener;
-    private FindFields variables;
+    private FindFields f;
 
     public Tab0Matching() {
         // Required empty public constructor
@@ -38,12 +40,10 @@ public class Tab0Matching extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null){
-            bundle = getArguments();
-            variables = (FindFields) bundle.get("FIND_FIELDS");
+        if (getArguments() == null){
+            f = new FindFields();
         } else {
-            bundle = new Bundle();
-            variables = new FindFields();
+            f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
     }
 
@@ -126,13 +126,13 @@ public class Tab0Matching extends Fragment {
     }
 
     private boolean enoughVariables(){
-        if (variables.getGroupSize() == 0){
+        if (f.getGroupSize() == 0){
             return false;
         }
-        if(variables.getRange() == 0){
+        if(f.getRange() == 0){
             return false;
         }
-        if(variables.drinks.size() == 0){
+        if(f.drinks.size() == 0){
             return false;
         }
         return true;
