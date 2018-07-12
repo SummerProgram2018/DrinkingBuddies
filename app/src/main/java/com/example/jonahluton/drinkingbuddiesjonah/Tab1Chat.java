@@ -110,8 +110,6 @@ public class Tab1Chat extends Fragment {
                         .commit();
             }
         });
-
-
         return view;
     }
 
