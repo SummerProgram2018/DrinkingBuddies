@@ -52,6 +52,41 @@
                 android:text="New Suggestions"
                 android:textSize="20sp" />
 
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView7"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView6"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView4"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView3"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@android:drawable/sym_def_app_icon" />-->
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -79,10 +114,6 @@
 
                 <RatingBar
                     android:id="@+id/rate1Bar"
-<<<<<<< Updated upstream
-                    android:isIndicator="true"
-=======
->>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -126,10 +157,6 @@
 
                 <RatingBar
                     android:id="@+id/rate2Bar"
-<<<<<<< Updated upstream
-                    android:isIndicator="true"
-=======
->>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -173,10 +200,6 @@
 
                 <RatingBar
                     android:id="@+id/rate3Bar"
-<<<<<<< Updated upstream
-                    android:isIndicator="true"
-=======
->>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -220,10 +243,6 @@
 
                 <RatingBar
                     android:id="@+id/rate4Bar"
-<<<<<<< Updated upstream
-                    android:isIndicator="true"
-=======
->>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -253,11 +272,7 @@
                     android:id="@+id/drink5TV"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-<<<<<<< Updated upstream
-                    android:layout_marginLeft="140dp"
-=======
                     android:layout_marginLeft="200dp"
->>>>>>> Stashed changes
                     android:text="Drink 5"
                     android:textStyle="bold" />
 
@@ -269,10 +284,6 @@
 
                 <RatingBar
                     android:id="@+id/rate5Bar"
-<<<<<<< Updated upstream
-                    android:isIndicator="true"
-=======
->>>>>>> Stashed changes
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
@@ -295,6 +306,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- ToDo: Create Pop up screen when alert button pressed-->
     <Button
         android:id="@+id/alertBtnID"
         android:layout_width="310dp"
@@ -306,6 +318,29 @@
         android:text="ALERT"
         android:textSize="16dp"
         android:textStyle="bold" />
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="125dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="113dp">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="38dp"-->
+            <!--android:text="TextView" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView8"-->
+            <!--android:layout_width="126dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@mipmap/ic_launcher" />-->
+    <!--</android.support.v7.widget.CardView>-->
+
+
+
 
 </RelativeLayout>
 
