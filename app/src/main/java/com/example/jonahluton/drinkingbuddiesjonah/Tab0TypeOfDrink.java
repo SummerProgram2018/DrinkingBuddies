@@ -14,18 +14,17 @@ import com.google.gson.Gson;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Tab0MatchingRequests extends Fragment {
+public class Tab0TypeOfDrink extends Fragment {
 
     private FindFields f;
 
 
-    public Tab0MatchingRequests() {
+    public Tab0TypeOfDrink() {
         // Required empty public constructor
     }
 
-
     @Override
-    public void onCreate (Bundle bundle){
+    public void onCreate(Bundle bundle){
         super.onCreate(bundle);
 
         if (getArguments() == null){
@@ -37,11 +36,16 @@ public class Tab0MatchingRequests extends Fragment {
         Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
                 Toast.LENGTH_LONG).show();
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab0_matching_requests, container, false);
+        View v = inflater.inflate(R.layout.fragment_tab0_type_of_drink, container, false);
+
+
+
+        return v;
     }
 
 }

@@ -18,7 +18,7 @@ public class BottomTabs extends AppCompatActivity implements
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
         Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener,
-        Tab0MatchingRequests.OnFragmentInteractionListener{
+        Tab0Group.OnFragmentInteractionListener{
 
     private Fragment currentFragment;
 

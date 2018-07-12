@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.Transition;
+import android.view.DragAndDropPermissions;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,14 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -71,6 +77,9 @@ public class Tab2Destination extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
+
     }
 
     @Override
@@ -94,6 +103,7 @@ public class Tab2Destination extends Fragment {
                 arriveBtn.setText("Enjoy!");
                 arriveStat.setText("1/2");
                 arriveBtn.setEnabled(false);
+                setRetainInstance(true);
             }
         });
 
@@ -163,6 +173,98 @@ public class Tab2Destination extends Fragment {
 
             }
         });
+
+        //FILL IN NEW SUGGESTIONS WIDGET
+
+        //Create Array of drink IDs
+        List<R.id> DRINK_PIC_ID = new ArrayList<>();
+
+        //Create Array of drink names and descriptions
+        List<String> DRINK_NAME = new ArrayList<>();
+        List<String> DRINK_PIC = new ArrayList<>();
+        List<String> DRINK_INFO = new ArrayList<>();
+
+        //Store IDs
+        //static {
+//
+//            DRINK_PIC_ID.add(R.id.drink1IV);
+//            DRINK_PIC_ID.add(R.id.drink2IV);
+//            DRINK_PIC_ID.add(R.id.drink3IV);
+//            DRINK_PIC_ID.add(R.id.drink4IV);
+//            DRINK_PIC_ID.add(R.id.drink5IV);
+
+
+        //}
+
+        //Create drink names
+        DRINK_NAME.add("Cappucino");
+        DRINK_NAME.add("Lemon Ice Tea");
+        DRINK_NAME.add("Green Tea");
+        DRINK_NAME.add("Mocha");
+        DRINK_NAME.add("Hot Chocolate");
+        DRINK_NAME.add("Latte");
+        DRINK_NAME.add("Coke");
+        DRINK_NAME.add("Oolong Milk Tea");
+        DRINK_NAME.add("2Mocha");
+        DRINK_NAME.add("2Hot Chocolate");
+
+        //create drink descriptions
+        DRINK_INFO.add("Dark, rich espresso, topped with a layer of foamed milk");
+        DRINK_INFO.add("Refreshing and zesty cold ice tea with a hint of freshly squeezed lemon");
+        DRINK_INFO.add("Bitter and sweet chinese green tea");
+        DRINK_INFO.add("Perfect mix of rich espresso and chocolate");
+        DRINK_INFO.add("Warm and cozy drink made up of 5 different types of chocolate");
+        DRINK_INFO.add("2Dark, rich espresso, topped with a layer of foamed milk");
+        DRINK_INFO.add("2Refreshing and zesty cold ice tea with a hint of freshly squeezed lemon");
+        DRINK_INFO.add("2Bitter and sweet chinese green tea");
+        DRINK_INFO.add("2Perfect mix of rich espresso and chocolate");
+        DRINK_INFO.add("2Warm and cozy drink made up of 5 different types of chocolate");
+        //}
+
+        //Randomise drink suggestions
+        int[] drinkOrder = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            Random rnd = new Random();
+            drinkOrder[i] = rnd.nextInt(10);
+        }
+
+        //check that numbers don't overlap
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (drinkOrder[i] == drinkOrder[j] &&  i != j) {
+                    Random rnd = new Random();
+                    drinkOrder[i] = rnd.nextInt(10);
+                }
+            }
+        }
+
+        //Create random ratings
+        float[] drinkRatings = new float[5];
+
+        for (int i = 0; i < 5; i++) {
+            Random rnd = new Random();
+            drinkRatings[i] = rnd.nextFloat() * 5;
+
+        }
+        //Place info in layout
+        for (int i = 0; i < 5; i++) {
+
+            int drinkID = getContext().getResources().getIdentifier("drink" + (i+1) +"TV", "id", getContext().getPackageName());
+            TextView DrinkName = (TextView) destinationView.findViewById(drinkID);
+
+            int infoID = getContext().getResources().getIdentifier("description" + (i+1) +"TV", "id", getContext().getPackageName());
+            TextView DrinkInfo = (TextView) destinationView.findViewById(infoID);
+
+            int rateID = getContext().getResources().getIdentifier("rate" + (i+1) +"Bar", "id", getContext().getPackageName());
+            RatingBar DrinkRate = (RatingBar) destinationView.findViewById(rateID);
+
+            DrinkName.setText(DRINK_NAME.get(drinkOrder[i]));
+            DrinkInfo.setText(DRINK_INFO.get(drinkOrder[i]));
+            DrinkRate.setRating(drinkRatings[i]);
+
+
+        }
 
         return destinationView;
     }
