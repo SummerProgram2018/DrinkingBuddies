@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 /**
@@ -32,6 +34,7 @@ public class Tab0Range extends Fragment {
         if (getArguments() == null){
             f = new FindFields();
         } else {
+
             FindFields jsonJavaRootObject = new Gson().fromJson(getArguments().get("FINDFIELDS"), FindFields.class);
             //f = (FindFields) getArguments().get("FINDFIELDS");
         }
@@ -58,6 +61,7 @@ public class Tab0Range extends Fragment {
                         Tab0Matching newTab = new Tab0Matching();
                         //bundle.put(); //TODO
                         //newTab.setArguments("FIND_FIELDS", f);
+
                         FragmentManager manager = getFragmentManager();
                         FragmentTransaction bob = manager.beginTransaction();
                         bob.replace(R.id.content, newTab).commit();
