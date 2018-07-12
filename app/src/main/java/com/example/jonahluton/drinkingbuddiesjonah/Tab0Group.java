@@ -94,7 +94,6 @@ public class Tab0Group extends Fragment {
 
 
 
-
     private void returnValue(int i){
         Bundle bundle = new Bundle();
         f.setGroupSize(i);

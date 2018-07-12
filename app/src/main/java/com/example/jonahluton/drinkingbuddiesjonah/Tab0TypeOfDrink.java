@@ -22,13 +22,15 @@ public class Tab0TypeOfDrink extends Fragment {
 
     private FindFields f;
 
+
     public Tab0TypeOfDrink() {
         // Required empty public constructor
     }
 
+
     @Override
-    public void onCreate(Bundle bun){
-        super.onCreate(bun);
+    public void onCreate(Bundle bundle){
+        super.onCreate(bundle);
 
         if (getArguments() == null){
             f = new FindFields();
@@ -39,11 +41,23 @@ public class Tab0TypeOfDrink extends Fragment {
                 Toast.LENGTH_LONG).show();
     }
 
+
+
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tab0_type_of_drink, container, false);
+
+        View a = v.findViewById(R.id.A);
+        a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                f.drinks.add("A");
+                launchTab();
+            }
+        });
 
         View na = v.findViewById(R.id.NA);
         na.setOnClickListener(new View.OnClickListener() {
@@ -54,14 +68,6 @@ public class Tab0TypeOfDrink extends Fragment {
             }
         });
 
-        View a = v.findViewById(R.id.A);
-        a.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                f.drinks.add("A");
-                launchTab();
-            }
-        });
         View c = v.findViewById(R.id.C);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +76,6 @@ public class Tab0TypeOfDrink extends Fragment {
                 launchTab();
             }
         });
-
         return v;
     }
 
