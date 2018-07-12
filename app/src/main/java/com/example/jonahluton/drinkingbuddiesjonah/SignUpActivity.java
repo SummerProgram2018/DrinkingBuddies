@@ -73,15 +73,22 @@ public class SignUpActivity extends AppCompatActivity {
                         writer.write(id + "," + email + "," + pass + "\n");
                         writer.flush();
                         writer.close();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    launchSignUp();
                 }
             }
         });
 
 
 
+    }
+
+    private void launchSignUp(){
+        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+        startActivity(intent);
     }
 }
 
