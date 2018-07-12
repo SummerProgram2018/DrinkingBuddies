@@ -32,25 +32,25 @@
         android:textSize="26sp" />
 
 
-    <!--<ScrollView-->
-        <!--android:layout_width="340dp"-->
-        <!--android:layout_height="443dp"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="92dp"-->
-        <!--android:scrollbarStyle="insideOverlay">-->
+    <ScrollView
+        android:layout_width="340dp"
+        android:layout_height="443dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:scrollbarStyle="insideOverlay">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <!--<TextView-->
-                <!--android:id="@+id/newSuggestionsTxtView"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="New Suggestions"-->
-                <!--android:textSize="20sp" />-->
+            <TextView
+                android:id="@+id/newSuggestionsTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Suggestions"
+                android:textSize="20sp" />
 
             <!--<ImageView-->
                 <!--android:id="@+id/imageView"-->
@@ -87,8 +87,224 @@
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:src="@android:drawable/sym_def_app_icon" />-->
-        <!--</LinearLayout>-->
-    <!--</ScrollView>-->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#60000000">
+
+                <TextView
+                    android:id="@+id/drink1TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:text="Drink 1"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/drink1IV"
+                    android:layout_width="126dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RatingBar
+                    android:id="@+id/rate1Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/description1TV"
+                    android:layout_width="189dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="55dp"
+                    android:textStyle="italic"
+                    android:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#60000000">
+
+                <TextView
+                    android:id="@+id/drink2TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:text="Drink 2"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/drink2IV"
+                    android:layout_width="126dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RatingBar
+                    android:id="@+id/rate2Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/description2TV"
+                    android:layout_width="189dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="55dp"
+                    android:textStyle="italic"
+                    android:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#60000000">
+
+                <TextView
+                    android:id="@+id/drink3TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:text="Drink 3"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/drink3IV"
+                    android:layout_width="126dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RatingBar
+                    android:id="@+id/rate3Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/description3TV"
+                    android:layout_width="189dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="55dp"
+                    android:textStyle="italic"
+                    android:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#60000000">
+
+                <TextView
+                    android:id="@+id/drink4TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:text="Drink 4"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/drink4IV"
+                    android:layout_width="126dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RatingBar
+                    android:id="@+id/rate4Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/description4TV"
+                    android:layout_width="189dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="55dp"
+                    android:textStyle="italic"
+                    android:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#60000000">
+
+                <TextView
+                    android:id="@+id/drink5TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="200dp"
+                    android:text="Drink 5"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/drink5IV"
+                    android:layout_width="126dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RatingBar
+                    android:id="@+id/rate5Bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
+
+                <TextView
+                    android:id="@+id/description5TV"
+                    android:layout_width="189dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="55dp"
+                    android:textStyle="italic"
+                    android:text="TextView" />
+            </android.support.v7.widget.CardView>
+
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <!-- ToDo: Create Pop up screen when alert button pressed-->
     <Button
@@ -103,25 +319,25 @@
         android:textSize="16dp"
         android:textStyle="bold" />
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="113dp">
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="125dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="113dp">-->
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:text="TextView" />
+        <!--<TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="38dp"-->
+            <!--android:text="TextView" />-->
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="126dp"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher" />
-    </android.support.v7.widget.CardView>
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView8"-->
+            <!--android:layout_width="126dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@mipmap/ic_launcher" />-->
+    <!--</android.support.v7.widget.CardView>-->
 
 
 

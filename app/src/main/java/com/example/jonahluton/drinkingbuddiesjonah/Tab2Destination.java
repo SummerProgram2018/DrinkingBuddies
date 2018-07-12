@@ -71,6 +71,9 @@ public class Tab2Destination extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
+
     }
 
     @Override
@@ -94,6 +97,7 @@ public class Tab2Destination extends Fragment {
                 arriveBtn.setText("Enjoy!");
                 arriveStat.setText("1/2");
                 arriveBtn.setEnabled(false);
+                setRetainInstance(true);
             }
         });
 
@@ -104,25 +108,6 @@ public class Tab2Destination extends Fragment {
 //            Todo: start new fragment when alert button pressed
             @Override
             public void onClick(View v) {
-
-                //View popUpView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_confirm_alert, null);
-                //PopupWindow popUpWindow = new PopupWindow(popUpView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-                //PopupWindow popUp = new PopupWindow(getContext());
-                //TextView popUpText = new TextView(getContext());
-                //ViewGroup.LayoutParams popUpParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //popUpText.setLayoutParams(popUpParams);
-                //popUpText.setText("Testing");
-
-                //popUp.setContentView(popUpText);
-                //popUp.setWidth(400);
-                //popUp.setHeight(180);
-                //popUp.showAtLocation(button1, Gravity.CENTER_HORIZONTAL, 25, 25);
-                //popUp.update();
-
-                //popUpWindow.showAsDropDown(popUpView 0, 0);
-
-                //@Override
-                //public void showPopup(View v) {
 
                 View popupView = getLayoutInflater().inflate(R.layout.fragment_confirm_alert,
                         null);
@@ -172,23 +157,13 @@ public class Tab2Destination extends Fragment {
                 Transition exitTransit = new Slide();
                 popupWindow.setExitTransition(exitTransit);
 
-                popupWindow.setHeight(2000);
-                popupWindow.setWidth(2000);
-
-                int location[] = new int[2];
-
-                // Get the View's(the one that was clicked in the Fragment) location
-                v.getLocationOnScreen(location);
+                popupWindow.setHeight(1800);
+                popupWindow.setWidth(1100);
 
                 // Using location, the PopupWindow will be displayed right under anchorView
-                //popupWindow.showAtLocation(v, Gravity.NO_GRAVITY,
-                //        location[0], location[1] + v.getHeight());
+                popupWindow.showAtLocation(v, Gravity.CENTER,
+                        0, 0);
 
-                // Using location, the PopupWindow will be displayed right under anchorView
-                popupWindow.showAtLocation(v, Gravity.NO_GRAVITY,
-                        0, 2000);
-
-                //}
 
             }
         });

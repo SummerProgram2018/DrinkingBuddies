@@ -1,12 +1,18 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -18,70 +24,119 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Tab0Matching extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private Bundle bundle;
     private OnFragmentInteractionListener mListener;
+    private FindFields variables;
 
     public Tab0Matching() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Tab4Profile.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Tab0Matching newInstance(String param1, String param2) {
-        Tab0Matching fragment = new Tab0Matching();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+        if (getArguments() != null){
+            bundle = getArguments();
+            variables = (FindFields) bundle.get("FIND_FIELDS");
+        } else {
+            bundle = new Bundle();
+            variables = new FindFields();
+            bundle.putString("FIND_FIELDS", "");
         }
-
-        //TODO set onclick listeners for things
-
-
-
-
     }
 
-    public void onRequestsClick(){
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab0_matching, container, false);
+        View v = inflater.inflate(R.layout.fragment_tab0_matching, container, false);
+
+        TextView request = v.findViewById(R.id.request);
+        request.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Tab0MatchingRequests newTab = new Tab0MatchingRequests();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        TextView group = v.findViewById(R.id.group);
+        group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0Group newTab = new Tab0Group();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        TextView drink = v.findViewById(R.id.drink);
+        drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0TypeOfDrink newTab = new Tab0TypeOfDrink();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        TextView range = v.findViewById(R.id.range);
+        range.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Tab0Range newTab = new Tab0Range();
+                newTab.setArguments(bundle);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction bob = manager.beginTransaction();
+                bob.replace(R.id.content, newTab)
+                        .commit();
+            }
+        });
+
+        Button find = v.findViewById(R.id.button2);
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(enoughVariables()){
+                    search();
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(), "you're missing variabls",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    private void search(){
+        //TODO actually search
+    }
+
+    private boolean enoughVariables(){
+        if (variables.getGroupSize() == 0){
+            return false;
         }
+        if (variables.getRange() == 0){
+            return false;
+        }
+        if (variables.drinks.size() == 0){
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -116,114 +171,3 @@ public class Tab0Matching extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 }
-
-/*
-package com.example.jonahluton.drinkingbuddiesjonah;
-
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
-import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent.DummyItem;
-
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- *
-public class Tab0Matching extends Fragment {
-
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     *
-    public Tab0Matching() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static Tab0Matching newInstance(int columnCount) {
-        Tab0Matching fragment = new Tab0Matching();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
-        return view;
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     *
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
-    }
-}
-
-*/

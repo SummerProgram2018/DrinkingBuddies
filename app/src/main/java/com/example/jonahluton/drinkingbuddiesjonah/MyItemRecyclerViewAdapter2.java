@@ -41,8 +41,9 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).groupName);
+        holder.mGroupView.setText(mValues.get(position).group);
+        holder.mMessageView.setText(mValues.get(position).message);
+        holder.mTimeView.setText(mValues.get(position).time);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,20 +64,22 @@ public class MyItemRecyclerViewAdapter2 extends RecyclerView.Adapter<MyItemRecyc
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final TextView mGroupView;
+        public final TextView mMessageView;
+        public final TextView mTimeView;
         public ChatItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.messageTime);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mGroupView = (TextView) view.findViewById(R.id.group);
+            mMessageView = (TextView) view.findViewById(R.id.message);
+            mTimeView = (TextView) view.findViewById(R.id.time);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mGroupView.getText() + "'";
         }
     }
 }
