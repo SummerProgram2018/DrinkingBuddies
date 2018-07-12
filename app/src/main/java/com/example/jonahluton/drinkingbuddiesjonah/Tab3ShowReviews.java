@@ -28,8 +28,8 @@ public class Tab3ShowReviews extends AppCompatActivity implements View.OnClickLi
         if(b != null) {
             value = b.getInt("key");
         }
-        rating1  = (TextView)findViewById(R.id.rating_1);
-        rating1.setText(value);
+        rating1  = (TextView) findViewById(R.id.rating_1);
+        rating1.setText( "" + value);
 
 //        button_save = (Button)findViewById(R.id.button_save);
 //        button_save.setOnClickListener(this);

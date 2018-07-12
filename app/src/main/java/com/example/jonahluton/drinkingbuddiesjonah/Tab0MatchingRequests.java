@@ -45,7 +45,7 @@ public class Tab0MatchingRequests extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tab0_matching_requests, container, false);
 
-
+    /*
         ScrollView sv = v.findViewById(R.id.sv);
 
         // Create a LinearLayout element
@@ -63,7 +63,7 @@ public class Tab0MatchingRequests extends Fragment {
         // Display the view
         //setContentView(v);
 
-
+*/
         return v;
     }
 
