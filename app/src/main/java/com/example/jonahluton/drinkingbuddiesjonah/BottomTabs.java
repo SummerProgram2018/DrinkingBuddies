@@ -14,7 +14,6 @@ import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 import com.example.jonahluton.drinkingbuddiesjonah.Tab1ChatContent;
 
 public class BottomTabs extends AppCompatActivity implements
-        Tab0Matching.OnFragmentInteractionListener,
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
         Tab3Reviews.OnFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener,
