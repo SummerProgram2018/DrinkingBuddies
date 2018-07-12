@@ -29,11 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
@@ -104,26 +106,46 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
+        checkFile(); //TODO this is just a check to see if things work
     }
 
     private void checkFile(){
         // get external storage file reference
-        FileReader writer = null;
-        String temp = "";
+        //FileReader writer = null;
+        //String temp = "";
+        List<String> lines = new ArrayList<String>();
+
+        String fileName = Environment.getExternalStorageDirectory() + "/UserData";
+
+        File file = new File(fileName, "filename.extension");
+
+        // get external storage file reference
+        FileWriter writer = null;
         try {
-            List<String> lines = Files.readAllLines(Paths.get("file"), StandardCharsets.UTF_8);
-            writer = new FileReader(Environment.getExternalStorageDirectory() + "/UserData");
+            writer = new FileWriter(fileName);
             // Writes the content to the file
-            temp = writer.read();
+            writer.write("ma name Jeff");
+            writer.flush();
             writer.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Toast.makeText(getBaseContext(), temp,
+        try {
+            lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
+            //writer = new FileReader(Environment.getExternalStorageDirectory() + "/UserData");
+            // Writes the content to the file
+            //temp = writer.read();
+            //writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(getBaseContext(), lines.toString(),
+                Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), fileName,
                 Toast.LENGTH_LONG).show();
     }
 
