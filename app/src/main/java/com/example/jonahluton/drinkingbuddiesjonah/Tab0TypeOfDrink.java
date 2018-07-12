@@ -43,7 +43,7 @@ public class Tab0TypeOfDrink extends Fragment {
 
 
 
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

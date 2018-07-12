@@ -6,108 +6,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg7"
-<<<<<<< HEAD
-    tools:context=".Tab0TypeOfDrink"
     tools:layout_editor_absoluteY="25dp">
-=======
-    tools:context=".Tab0TypeOfDrink">
->>>>>>> 4ed638a1a91a8a12103722057536142553b71485
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:id="@+id/NA"
-        android:layout_width="120dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="170dp"
         android:src="@drawable/beer_coffee_logo"
-<<<<<<< HEAD
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="197dp" />
-=======
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="172dp" />
->>>>>>> 4ed638a1a91a8a12103722057536142553b71485
+        app:layout_constraintEnd_toStartOf="@+id/A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/A"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="26dp"
         android:src="@drawable/beer_coffee_logo"
-<<<<<<< HEAD
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="197dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NON- Alcoholoc"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="331dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alcoholic"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="331dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/NA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/NA"
+        app:layout_constraintTop_toTopOf="@+id/NA" />
 
     <ImageView
         android:id="@+id/C"
         android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/beer_coffee_logo"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="435dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="133dp"
+        android:text="Clear"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/C"
+        app:layout_constraintStart_toStartOf="@+id/C" />
+
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="415dp" />
-=======
-        tools:layout_editor_absoluteX="238dp"
-        tools:layout_editor_absoluteY="172dp" />
-
-    <ImageView
-        android:id="@+id/C"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/beer_coffee_logo"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="384dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="373dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="9dp"
         android:text="Non-Alcoholic"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintBottom_toTopOf="@+id/NA"
+        app:layout_constraintEnd_toEndOf="@+id/NA" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:layout_marginStart="14dp"
         android:text="Alcoholic"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="252dp"
-        tools:layout_editor_absoluteY="142dp" />
->>>>>>> 4ed638a1a91a8a12103722057536142553b71485
+        app:layout_constraintBottom_toTopOf="@+id/A"
+        app:layout_constraintStart_toStartOf="@+id/A" />
 </android.support.constraint.ConstraintLayout>
