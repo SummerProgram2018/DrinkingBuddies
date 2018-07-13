@@ -1,14 +1,21 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
+import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
-public class Tab3ShowReviews extends AppCompatActivity implements View.OnClickListener{
+public class Tab3ShowReviews extends AppCompatActivity implements View.OnClickListener, Tab4Profile.OnFragmentInteractionListener{
+    private android.support.v4.app.Fragment currentFragment;
     private Button button_return;
+    private Button button_confirm;
     private TextView rating1;
     private TextView rating2;
     private TextView rating3;
@@ -26,6 +33,8 @@ public class Tab3ShowReviews extends AppCompatActivity implements View.OnClickLi
     private  void initView(){
         button_return = (Button)findViewById(R.id.button_return);
         button_return.setOnClickListener(this);
+        button_confirm = (Button)findViewById(R.id.button_confirm);
+        button_confirm.setOnClickListener(this);
         Bundle b = getIntent().getExtras();
         int value1 = -1;
         int value2 = -1;
@@ -57,12 +66,51 @@ public class Tab3ShowReviews extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()){
             case R.id.button_return:
                 finish();
+             break;
+
+            case R.id.button_confirm:
+
+                //finish();
+
+//                FragmentTransaction fragmentTransaction;
+//                FragmentManager fragmentManager;
+//
+//                Class fragmentClass=null;
+//                Fragment mFragment;
+//
+//                Notes notes_fragment;  // fragment instance of current fragment
+//
+//                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//
+//                mFragment = new Tab4Profile();
+//
+//                setFragment(mFragment);
+//                // CreateNewNote is fragment you want to display
+//
+//                fragmentTransaction.replace(R.id.content_fragment, mFragment);  // content_fragment is id of FrameLayout(XML file) where fragment will be displayed
+//
+//                fragmentTransaction.addToBackStack(frag_no); //add fragment to stack
+//                fragmentTransaction.hide(currentFragment).commit();
+
+                Tab4Profile newTab = new Tab4Profile();
+                Bundle args = new Bundle();
+                View v = view.findViewById(R.id.frameLayout);
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+                fragmentTransaction.replace(R.id.frameLayout, newTab);
+                fragmentTransaction.commit();
+
+                button_return.setVisibility(View.INVISIBLE);
+                button_confirm.setVisibility(View.INVISIBLE);
                 break;
-//            case R.id.button_save:
-//                finish();
-//                break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
