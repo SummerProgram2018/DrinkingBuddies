@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             // catches IOException below
 
-            FileOutputStream fOut = openFileOutput("Users.csv", MODE_PRIVATE);
+            FileOutputStream fOut = openFileOutput(Environment.getExternalStorageDirectory() + File.separator + "Users.csv", MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
             osw.write(s);
@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
 
         try {
             String line;
-            FileInputStream fileInputStream = new FileInputStream (new File("Users.csv"));
+            FileInputStream fileInputStream = new FileInputStream (new File(Environment.getExternalStorageDirectory() + File.separator + "Users.csv"));
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 

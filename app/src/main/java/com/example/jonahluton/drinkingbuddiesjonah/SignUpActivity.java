@@ -70,6 +70,17 @@ public class SignUpActivity extends AppCompatActivity {
                     // TODO writing stuff
                     String entry = email + ',' + pass + ',' + id + System.getProperty("line.separator");
 
+                    File file = new File(Environment.getExternalStorageDirectory() + File.separator + "Users.csv");
+                    if (! file.exists()){
+                        try {
+                            file.createNewFile();
+                        } catch (IOException e) {
+                            Toast.makeText(getBaseContext().getApplicationContext(), "No new file for you",
+                                    Toast.LENGTH_LONG).show();
+                            e.printStackTrace();
+                            return;
+                        }
+                    }
 
                     try {
                         FileOutputStream fOut = openFileOutput("Users.csv", MODE_APPEND);
