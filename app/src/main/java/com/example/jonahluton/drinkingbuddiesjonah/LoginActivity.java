@@ -133,12 +133,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkFile(){
         //Writing a file...
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/aDir/" ;
         ArrayList<String[]> users = new ArrayList<>();
 
         try {
             String line = null;
-            FileInputStream fileInputStream = new FileInputStream (new File(path + "Users.csv"));
+            FileInputStream fileInputStream = new FileInputStream (new File("Users.csv"));
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 

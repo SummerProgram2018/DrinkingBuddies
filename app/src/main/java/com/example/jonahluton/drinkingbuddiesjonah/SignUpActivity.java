@@ -68,13 +68,12 @@ public class SignUpActivity extends AppCompatActivity {
 
                     ///////////////////////////////////////////////////////////////////////////////////////////////
                     // TODO writing stuff
-                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/aDir/" ;
                     String entry = email + ',' + pass + ',' + id + System.getProperty("line.separator");
 
                     try {
                         // catches IOException below
 
-                        FileOutputStream fOut = openFileOutput(path + "Users.csv", MODE_PRIVATE);
+                        FileOutputStream fOut = openFileOutput("Users.csv", MODE_PRIVATE);
                         OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
                         osw.write(entry);
