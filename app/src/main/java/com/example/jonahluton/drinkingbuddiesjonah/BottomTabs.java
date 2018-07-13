@@ -12,10 +12,9 @@ import android.view.MenuItem;
 import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
 
 public class BottomTabs extends AppCompatActivity implements
-        Tab0Matching.OnFragmentInteractionListener,
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
-        Tab3Reviews.OnListFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener,
+        Tab3Reviews.OnFragmentInteractionListener, Tab4Profile.OnFragmentInteractionListener,
         Tab0Group.OnFragmentInteractionListener{
 
     private Fragment currentFragment;
@@ -65,10 +64,10 @@ public class BottomTabs extends AppCompatActivity implements
         setFragment(new Tab0Matching());
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
+//    @Override
+//    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+//
+//    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {

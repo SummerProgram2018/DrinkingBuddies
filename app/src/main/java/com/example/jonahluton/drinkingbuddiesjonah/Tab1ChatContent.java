@@ -1,5 +1,7 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
+import android.os.Bundle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,7 +73,10 @@ public class Tab1ChatContent {
 
     private static void addItem(ChatItem item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.time, item);
+        ITEM_MAP.put(item.group, item);
+
+        // set listeners
+
     }
 
     private static ChatItem createDummyItem(int position) {

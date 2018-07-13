@@ -6,7 +6,7 @@ public class FindFields {
 
 
     private int groupSize = 0;
-    public ArrayList<String> drinks;
+    public ArrayList<String> drinks = new ArrayList<>();
     private int range = 0;
 
     public FindFields(){
@@ -35,12 +35,14 @@ public class FindFields {
     }
 
     public void setGroupSize(int i){
-        if (!(i>2)){
+        if (!(i>0)){
             return;
         }
             groupSize = i;
 
     }
 
-    //TODO make Gson work
+    public String toString(){
+        return groupSize + " " + range + " " + drinks;
+    }
 }

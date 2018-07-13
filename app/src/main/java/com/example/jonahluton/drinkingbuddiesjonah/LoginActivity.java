@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,13 +26,24 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,8 +109,104 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        checkFile(); //TODO this is just a check to see if things work
     }
 
+    private void checkFile(){
+        //Writing a file...
+
+        String readString = "";
+
+        try {
+            // catches IOException below
+            final String TESTSTRING = new String("Hello Android");
+
+            /* We have to use the openFileOutput()-method
+             * the ActivityContext provides, to
+             * protect your file from others and
+             * This is done for security-reasons.
+             * We chose MODE_WORLD_READABLE, because
+             *  we have nothing to hide in our file */
+            FileOutputStream fOut = openFileOutput("samplefile.txt",
+                    MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fOut);
+
+            // Write the string to the file
+            osw.write(TESTSTRING);
+
+            /* ensure that everything is
+             * really written out and close */
+            osw.flush();
+            osw.close();
+
+            //Reading the file back...
+
+            /* We have to use the openFileInput()-method
+             * the ActivityContext provides.
+             * Again for security reasons with
+             * openFileInput(...) */
+
+            FileInputStream fIn = openFileInput("samplefile.txt");
+            InputStreamReader isr = new InputStreamReader(fIn);
+
+            /* Prepare a char-Array that will
+             * hold the chars we read back in. */
+            char[] inputBuffer = new char[TESTSTRING.length()];
+
+            // Fill the Buffer with data from the file
+            isr.read(inputBuffer);
+
+            // Transform the chars to a String
+            readString = new String(inputBuffer);
+
+            // Check if we read back the same chars that we had written out
+            boolean isTheSame = TESTSTRING.equals(readString);
+
+        } catch (IOException ioe)
+        {ioe.printStackTrace();}
+
+
+
+
+
+        /*
+        // get external storage file reference
+        //FileReader writer = null;
+        //String temp = "";
+        List<String> lines = new ArrayList<String>();
+
+        String fileName = Environment.getExternalStorageDirectory() + "/UserData";
+
+        File file = new File(fileName, "filename.extension");
+
+        // get external storage file reference
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileName);
+            // Writes the content to the file
+            writer.write("ma name Jeff");
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
+            //writer = new FileReader(Environment.getExternalStorageDirectory() + "/UserData");
+            // Writes the content to the file
+            //temp = writer.read();
+            //writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+
+        Toast.makeText(getBaseContext(), readString,
+                Toast.LENGTH_LONG).show();
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
