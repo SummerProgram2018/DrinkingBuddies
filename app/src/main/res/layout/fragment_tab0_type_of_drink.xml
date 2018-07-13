@@ -16,7 +16,7 @@
         android:layout_marginEnd="81dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="170dp"
-        android:src="@drawable/beer_coffee_logo"
+        android:src="@drawable/drink"
         app:layout_constraintEnd_toStartOf="@+id/A"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="26dp"
-        android:src="@drawable/beer_coffee_logo"
+        android:src="@drawable/alcohol"
         app:layout_constraintBottom_toBottomOf="@+id/NA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/NA"

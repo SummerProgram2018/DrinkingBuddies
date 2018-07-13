@@ -17,7 +17,21 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/darker_gray"
         android:clickable="true"
-        android:text="@string/edit_return"
+        android:text="Undo"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_alignTop="@+id/button_return"
+        android:layout_toEndOf="@+id/textView19"
+        android:background="@android:color/darker_gray"
+        android:clickable="true"
+        android:text="Confirm"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
