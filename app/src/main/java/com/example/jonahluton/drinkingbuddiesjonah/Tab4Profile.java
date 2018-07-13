@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.jonahluton.drinkingbuddiesjonah.utils.SharedPrefsUtil;
 
 
 /**
@@ -30,7 +33,7 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
     private String mParam2;
     private Button edit_profile;
     private OnFragmentInteractionListener mListener;
-
+    private TextView name,dis;
     public Tab4Profile() {
         // Required empty public constructor
     }
@@ -53,6 +56,8 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +66,6 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,10 +74,23 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
         initView(view);
         return view;
     }
-
     private void initView(View view){
         edit_profile = (Button)view.findViewById(R.id.edit_profile);
         edit_profile.setOnClickListener(this);
+        name = (TextView) view.findViewById(R.id.name);
+        dis = (TextView)view.findViewById(R.id.dis);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        String name_= SharedPrefsUtil.getStringValue(getContext(),"name",null);
+        String dis_=SharedPrefsUtil.getStringValue(getContext(),"dis",null);
+        if (name_!=null){
+            name.setText(name_);
+        }
+        if (dis_!=null){
+            dis.setText(dis_);
+        }
     }
 
     @Override
@@ -109,6 +126,14 @@ public class Tab4Profile extends Fragment implements View.OnClickListener{
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
+    }
+
+
+
+    public void updateUI(String name_,String dis_){
+        name.setText(name_);
+        dis.setText(dis_);
     }
 
     @Override

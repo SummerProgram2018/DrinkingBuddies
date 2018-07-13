@@ -1,10 +1,10 @@
 package com.example.jonahluton.drinkingbuddiesjonah;
 
 import android.content.Intent;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Explode;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.jonahluton.drinkingbuddiesjonah.utils.SharedPrefsUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        SharedPrefsUtil.clearValue(this,"name");
+        SharedPrefsUtil.clearValue(this,"dis");
         if (isStoredToken()){
 
             //launch bottom tabs
