@@ -9,8 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.jonahluton.drinkingbuddiesjonah.dummy.DummyContent;
-
 public class BottomTabs extends AppCompatActivity implements
         Tab1Chat.OnListFragmentInteractionListener,
         Tab2Destination.OnFragmentInteractionListener,
