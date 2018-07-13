@@ -31,6 +31,7 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -112,99 +113,55 @@ public class LoginActivity extends AppCompatActivity {
         checkFile(); //TODO this is just a check to see if things work
     }
 
-    private void checkFile(){
-        //Writing a file...
 
-        String readString = "";
+    private void write(String s){
 
         try {
             // catches IOException below
-            final String TESTSTRING = new String("Hello Android");
 
-            /* We have to use the openFileOutput()-method
-             * the ActivityContext provides, to
-             * protect your file from others and
-             * This is done for security-reasons.
-             * We chose MODE_WORLD_READABLE, because
-             *  we have nothing to hide in our file */
-            FileOutputStream fOut = openFileOutput("samplefile.txt",
-                    MODE_PRIVATE);
+            FileOutputStream fOut = openFileOutput("Users.csv", MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
-            // Write the string to the file
-            osw.write(TESTSTRING);
+            osw.write(s);
 
-            /* ensure that everything is
-             * really written out and close */
             osw.flush();
             osw.close();
-
-            //Reading the file back...
-
-            /* We have to use the openFileInput()-method
-             * the ActivityContext provides.
-             * Again for security reasons with
-             * openFileInput(...) */
-
-            FileInputStream fIn = openFileInput("samplefile.txt");
-            InputStreamReader isr = new InputStreamReader(fIn);
-
-            /* Prepare a char-Array that will
-             * hold the chars we read back in. */
-            char[] inputBuffer = new char[TESTSTRING.length()];
-
-            // Fill the Buffer with data from the file
-            isr.read(inputBuffer);
-
-            // Transform the chars to a String
-            readString = new String(inputBuffer);
-
-            // Check if we read back the same chars that we had written out
-            boolean isTheSame = TESTSTRING.equals(readString);
-
-        } catch (IOException ioe)
-        {ioe.printStackTrace();}
-
-
-
-
-
-        /*
-        // get external storage file reference
-        //FileReader writer = null;
-        //String temp = "";
-        List<String> lines = new ArrayList<String>();
-
-        String fileName = Environment.getExternalStorageDirectory() + "/UserData";
-
-        File file = new File(fileName, "filename.extension");
-
-        // get external storage file reference
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(fileName);
-            // Writes the content to the file
-            writer.write("ma name Jeff");
-            writer.flush();
-            writer.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void checkFile(){
+        //Writing a file...
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/aDir/" ;
+        ArrayList<String[]> users = new ArrayList<>();
 
         try {
-            lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
-            //writer = new FileReader(Environment.getExternalStorageDirectory() + "/UserData");
-            // Writes the content to the file
-            //temp = writer.read();
-            //writer.close();
+            String line = null;
+            FileInputStream fileInputStream = new FileInputStream (new File(path + "Users.csv"));
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            while ( (line = bufferedReader.readLine()) != null )
+            {
+                users.add(line.split(","));
+            }
+
+            fileInputStream.close();
+
+            bufferedReader.close();
+
+            //TODO users is now all the users.
         }
-        */
+        catch(FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
 
-        Toast.makeText(getBaseContext(), readString,
+
+        Toast.makeText(getBaseContext(), users.toString(),
                 Toast.LENGTH_LONG).show();
     }
 

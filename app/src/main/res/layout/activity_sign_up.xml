@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,12 +40,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="re enter password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/citNum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass"
-        tools:hint="@string/error_incorrect_password" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <EditText
         android:id="@+id/citNum"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="228dp"
         android:ems="10"
-        android:inputType="numberDecimal"
         android:hint="Citizen Number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
-        android:text="Button"
+        android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

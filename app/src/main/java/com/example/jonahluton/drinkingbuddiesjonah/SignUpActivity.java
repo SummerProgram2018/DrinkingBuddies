@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 /**
  * A login screen that offers login via email/password.
@@ -65,18 +66,25 @@ public class SignUpActivity extends AppCompatActivity {
                     EditText temp3 = findViewById(R.id.citNum);
                     String id = temp3.getText().toString();
 
-                    // get external storage file reference
-                    FileWriter writer = null;
-                    try {
-                        writer = new FileWriter(Environment.getExternalStorageDirectory() + "/UserData");
-                        // Writes the content to the file
-                        writer.write(id + "," + email + "," + pass + "\n");
-                        writer.flush();
-                        writer.close();
+                    ///////////////////////////////////////////////////////////////////////////////////////////////
+                    // TODO writing stuff
+                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/aDir/" ;
+                    String entry = email + ',' + pass + ',' + id + System.getProperty("line.separator");
 
+                    try {
+                        // catches IOException below
+
+                        FileOutputStream fOut = openFileOutput(path + "Users.csv", MODE_PRIVATE);
+                        OutputStreamWriter osw = new OutputStreamWriter(fOut);
+
+                        osw.write(entry);
+
+                        osw.flush();
+                        osw.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                     launchSignUp();
                 }
             }
