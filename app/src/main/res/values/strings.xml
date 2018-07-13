@@ -21,6 +21,7 @@
     <string name="user_dis">User Discription</string>
     <string name="edit_cancel">Cancel</string>
     <string name="edit_save">Save</string>
+    <string name="edit_return">Return</string>
 
     <!-- strings related to signup -->
     <string name="next">Next</string>
@@ -39,4 +40,5 @@
     <string name="type_of_drink">Type of Drink</string>
     <string name="range">Range</string>
     <string name="range_km">Range (in km)</string>
+    <string name="visit">Thank you for visiting</string>
 </resources>

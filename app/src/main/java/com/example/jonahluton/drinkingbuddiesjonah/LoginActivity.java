@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,13 +26,21 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,8 +106,48 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        checkFile(); //TODO this is just a check to see if things work
     }
 
+    private void checkFile(){
+        // get external storage file reference
+        //FileReader writer = null;
+        //String temp = "";
+        List<String> lines = new ArrayList<String>();
+
+        String fileName = Environment.getExternalStorageDirectory() + "/UserData";
+
+        File file = new File(fileName, "filename.extension");
+
+        // get external storage file reference
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileName);
+            // Writes the content to the file
+            writer.write("ma name Jeff");
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
+            //writer = new FileReader(Environment.getExternalStorageDirectory() + "/UserData");
+            // Writes the content to the file
+            //temp = writer.read();
+            //writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(getBaseContext(), lines.toString(),
+                Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), fileName,
+                Toast.LENGTH_LONG).show();
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.

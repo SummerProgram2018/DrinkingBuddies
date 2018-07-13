@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 
+
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -26,6 +28,7 @@ public class Tab0Range extends Fragment {
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -36,7 +39,7 @@ public class Tab0Range extends Fragment {
             f = new Gson().fromJson((String) getArguments().get("FIND_FIELDS"), FindFields.class);
         }
 
-        Toast.makeText(getContext().getApplicationContext(), f.getGroupSize() + " " + f.getRange() + ' ' + f.drinks,
+        Toast.makeText(getContext().getApplicationContext(), f.toString(),
                 Toast.LENGTH_LONG).show();
     }
 
