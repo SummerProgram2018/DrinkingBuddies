@@ -30,10 +30,13 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.net.Socket;
@@ -110,6 +113,63 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkFile(){
+        //Writing a file...
+
+        String readString = "";
+
+        try {
+            // catches IOException below
+            final String TESTSTRING = new String("Hello Android");
+
+            /* We have to use the openFileOutput()-method
+             * the ActivityContext provides, to
+             * protect your file from others and
+             * This is done for security-reasons.
+             * We chose MODE_WORLD_READABLE, because
+             *  we have nothing to hide in our file */
+            FileOutputStream fOut = openFileOutput("samplefile.txt",
+                    MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fOut);
+
+            // Write the string to the file
+            osw.write(TESTSTRING);
+
+            /* ensure that everything is
+             * really written out and close */
+            osw.flush();
+            osw.close();
+
+            //Reading the file back...
+
+            /* We have to use the openFileInput()-method
+             * the ActivityContext provides.
+             * Again for security reasons with
+             * openFileInput(...) */
+
+            FileInputStream fIn = openFileInput("samplefile.txt");
+            InputStreamReader isr = new InputStreamReader(fIn);
+
+            /* Prepare a char-Array that will
+             * hold the chars we read back in. */
+            char[] inputBuffer = new char[TESTSTRING.length()];
+
+            // Fill the Buffer with data from the file
+            isr.read(inputBuffer);
+
+            // Transform the chars to a String
+            readString = new String(inputBuffer);
+
+            // Check if we read back the same chars that we had written out
+            boolean isTheSame = TESTSTRING.equals(readString);
+
+        } catch (IOException ioe)
+        {ioe.printStackTrace();}
+
+
+
+
+
+        /*
         // get external storage file reference
         //FileReader writer = null;
         //String temp = "";
@@ -142,10 +202,9 @@ public class LoginActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
 
-        Toast.makeText(getBaseContext(), lines.toString(),
-                Toast.LENGTH_LONG).show();
-        Toast.makeText(getBaseContext(), fileName,
+        Toast.makeText(getBaseContext(), readString,
                 Toast.LENGTH_LONG).show();
     }
 
