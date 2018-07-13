@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="drink_images">
+        <item>@drawable/cappucino</item>
+        <item>@drawable/lemonicetea</item>
+        <item>@drawable/greentea</item>
+        <item>@drawable/mocha</item>
+        <item>@drawable/hotchoco</item>
+        <item>@drawable/matchalatte</item>
+        <item>@drawable/xxxx</item>
+        <item>@drawable/milktea</item>
+        <item>@drawable/wintermelon</item>
+        <item>@drawable/appleyakult</item>
+        <item>@drawable/mangosmoothie</item>
+        <item>@drawable/strawberrymilk</item>
+        <item>@drawable/lemonade</item>
+        <item>@drawable/watermelon</item>
+        <item>@drawable/chai</item>
+        <item>@drawable/oreo</item>
+        <item>@drawable/caramelfrappe</item>
+    </array>
+</resources>

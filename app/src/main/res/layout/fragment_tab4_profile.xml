@@ -13,14 +13,10 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="81dp"
+        android:layout_height="147dp"
         android:contentDescription="@string/image_bio"
         android:scaleType="center"
-        android:src="@drawable/profile_bg"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/profile_bg" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/circularImageView"
@@ -53,26 +49,28 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/user_name"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="188dp"
+        android:hint="input name"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/circularImageView"
-        app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:text="@string/user_dis"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="224dp"
+        android:hint="input dis"
         android:textColor="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view3"
