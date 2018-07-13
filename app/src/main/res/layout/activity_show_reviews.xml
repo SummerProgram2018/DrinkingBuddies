@@ -27,19 +27,125 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="109dp"
-        android:text="Yeahboi" />
+        android:layout_marginTop="135dp"
+        android:layout_toStartOf="@+id/rating_3"
+        android:paddingBottom="40dp"
+        android:paddingRight="15dp"
+        android:text="Stone and Wood"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_toStartOf="@+id/rating_3"
+        android:paddingBottom="35dp"
+        android:paddingRight="15dp"
+        android:text="Espresso Martini"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView17"
+        android:layout_toStartOf="@+id/rating_3"
+        android:paddingBottom="40dp"
+        android:paddingRight="15dp"
+        android:text="Scotch and Dry"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView18"
+        android:layout_toStartOf="@+id/rating_3"
+        android:paddingBottom="40dp"
+        android:paddingRight="15dp"
+        android:text="Overall Experience"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/rating_2"
+        android:layout_width="33dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/rating_3"
+        android:layout_alignTop="@+id/textView17"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/rating_3"
+        android:layout_width="33dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/rating_1"
+        android:layout_marginTop="255dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/rating_4"
+        android:layout_width="33dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/rating_3"
+        android:layout_below="@+id/textView18"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/rating_1"
-        android:layout_width="wrap_content"
+        android:layout_width="33dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textView3"
-        android:layout_marginEnd="140dp"
+        android:layout_marginEnd="138dp"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:text="You Have Rated"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rating_1"
+        android:layout_toEndOf="@+id/rating_3"
+        android:text="Stars"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_alignTop="@+id/rating_2"
+        android:text="Stars"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rating_3"
+        android:layout_toEndOf="@+id/rating_3"
+        android:text="Stars"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rating_4"
+        android:layout_toEndOf="@+id/rating_3"
+        android:text="Stars"
+        android:textSize="17sp" />
 
 </RelativeLayout>

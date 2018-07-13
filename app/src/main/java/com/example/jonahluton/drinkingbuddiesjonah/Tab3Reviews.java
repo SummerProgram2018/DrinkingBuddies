@@ -35,6 +35,9 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
     private String mParam2;
     private Button confirm_ratings;
     private RatingBar rate_bar1;
+    private RatingBar rate_bar2;
+    private RatingBar rate_bar3;
+    private RatingBar rate_bar4;
     private OnFragmentInteractionListener mListener;
 
 
@@ -92,6 +95,15 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
 
         rate_bar1= (RatingBar) view.findViewById(R.id.ratingBar1);
         rate_bar1.setOnClickListener(this);
+
+        rate_bar2= (RatingBar) view.findViewById(R.id.ratingBar2);
+        rate_bar2.setOnClickListener(this);
+
+        rate_bar3= (RatingBar) view.findViewById(R.id.ratingBar3);
+        rate_bar3.setOnClickListener(this);
+
+        rate_bar4= (RatingBar) view.findViewById(R.id.ratingBar4);
+        rate_bar4.setOnClickListener(this);
     }
 
     @Override
@@ -100,7 +112,10 @@ public class Tab3Reviews extends Fragment implements View.OnClickListener {
             case R.id.confirmRatings:
                 Intent intent = new Intent(getActivity(), Tab3ShowReviews.class);
                 Bundle b = new Bundle();
-                b.putInt("key", (int) rate_bar1.getRating()); //Your id
+                b.putInt("key1", (int) rate_bar1.getRating());
+                b.putInt("key2", (int) rate_bar2.getRating());
+                b.putInt("key3", (int) rate_bar3.getRating());
+                b.putInt("key4", (int) rate_bar4.getRating());//Your id
                 intent.putExtras(b);
                 startActivity(intent);
 
