@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
         ArrayList<String[]> users = new ArrayList<>();
 
         try {
-            String line = null;
+            String line;
             FileInputStream fileInputStream = new FileInputStream (new File("Users.csv"));
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

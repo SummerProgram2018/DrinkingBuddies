@@ -70,10 +70,9 @@ public class SignUpActivity extends AppCompatActivity {
                     // TODO writing stuff
                     String entry = email + ',' + pass + ',' + id + System.getProperty("line.separator");
 
-                    try {
-                        // catches IOException below
 
-                        FileOutputStream fOut = openFileOutput("Users.csv", MODE_PRIVATE);
+                    try {
+                        FileOutputStream fOut = openFileOutput("Users.csv", MODE_APPEND);
                         OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
                         osw.write(entry);
@@ -81,7 +80,10 @@ public class SignUpActivity extends AppCompatActivity {
                         osw.flush();
                         osw.close();
                     } catch (IOException e) {
+                        Toast.makeText(getBaseContext().getApplicationContext(), "failked to  write",
+                                Toast.LENGTH_LONG).show();
                         e.printStackTrace();
+                        return;
                     }
 
                     launchSignUp();
