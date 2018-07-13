@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
 
                     try {
-                        FileOutputStream fOut = openFileOutput(Environment.getExternalStorageDirectory() + File.separator + "Users.csv", MODE_APPEND);
+                        FileOutputStream fOut = new FileOutputStream(file);
                         OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
                         osw.write(entry);
