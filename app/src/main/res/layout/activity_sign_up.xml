@@ -12,62 +12,44 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="0dp"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/pass"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="40dp" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="384dp"
+        android:layout_height="59dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/repass"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        tools:hint="Password" />
+        tools:hint="Password"
+        tools:layout_editor_absoluteY="86dp" />
 
     <EditText
         android:id="@+id/repass"
-        android:layout_width="0dp"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="re enter password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/citNum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        tools:layout_editor_absoluteY="144dp" />
 
     <EditText
         android:id="@+id/citNum"
-        android:layout_width="0dp"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="228dp"
         android:ems="10"
         android:hint="Citizen Number"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repass" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
         android:text="Confirm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/citNum" />
+        tools:layout_editor_absoluteY="463dp" />
 </android.support.constraint.ConstraintLayout>

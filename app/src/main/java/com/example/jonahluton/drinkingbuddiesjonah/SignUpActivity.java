@@ -74,12 +74,12 @@ public class SignUpActivity extends AppCompatActivity {
                     if (! file.exists()){
                         try {
                             file.createNewFile();
-                        } catch (IOException e) {
+                        } /*catch (IOException e) {
                             Toast.makeText(getBaseContext().getApplicationContext(), "No new file for you",
                                     Toast.LENGTH_LONG).show();
                             e.printStackTrace();
                             return;
-                        }
+                        }*/
                     }
 
                     try {
