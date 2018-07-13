@@ -137,7 +137,22 @@ public class LoginActivity extends AppCompatActivity {
 
         try {
             String line;
-            FileInputStream fileInputStream = new FileInputStream (new File(Environment.getExternalStorageDirectory() + File.separator + "Users.csv"));
+
+
+            File file = new File(Environment.getExternalStorageDirectory() + File.separator + "Users.csv");
+            if (! file.exists()){
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    Toast.makeText(getBaseContext().getApplicationContext(), "No new file for you",
+                            Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                    return;
+                }
+            }
+
+
+            FileInputStream fileInputStream = new FileInputStream (file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 

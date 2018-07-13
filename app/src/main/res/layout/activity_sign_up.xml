@@ -12,44 +12,60 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_marginBottom="45dp"
+        android:layout_marginTop="46dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:hint="Password"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/repass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/email"
+        tools:hint="Password" />
 
     <EditText
         android:id="@+id/repass"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:hint="re enter password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteY="144dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/citNum"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Citizen Number"
         android:inputType="numberDecimal"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repass" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
         android:text="Confirm"
-        tools:layout_editor_absoluteY="463dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
